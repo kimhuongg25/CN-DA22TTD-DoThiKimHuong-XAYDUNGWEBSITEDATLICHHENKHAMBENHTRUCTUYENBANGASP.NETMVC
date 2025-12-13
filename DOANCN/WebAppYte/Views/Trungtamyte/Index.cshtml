@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebAppYte.Models.TrungTamGanNhat>
+
+<h3>Tìm Trung Tâm Y Tế Gần Nhất</h3>
+
+@using (Html.BeginForm("Index", "Trungtamyte", FormMethod.Post))
+{
+    @Html.DropDownList("IDHuyen", (SelectList)ViewBag.IDTinh, "Chọn huyện", new { @class = "form-control", style = "max-width:300px" })
+    <br />
+    <input type="submit" value="Tìm kiếm" class="btn btn-primary" />
+}
+
+<br />
+
+@if (Model.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Tên Trung Tâm</th>
+                <th>Địa Chỉ</th>
+                <th>Tỉnh</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.TenTrungTam</td>
+                    <td>@item.Mota</td>
+                    <td>@item.Huyen.TenHuyen</td>
+                    <td>@Html.ActionLink("Xem chi tiết", "Details", new { id = item.IDTrungTam })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p><i>Chưa có dữ liệu để hiển thị.</i></p>
+}

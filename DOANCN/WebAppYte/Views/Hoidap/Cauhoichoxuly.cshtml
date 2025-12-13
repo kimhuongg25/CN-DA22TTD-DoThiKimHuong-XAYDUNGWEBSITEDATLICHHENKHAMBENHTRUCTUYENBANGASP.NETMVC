@@ -1,0 +1,232 @@
+﻿@model PagedList.IPagedList<WebAppYte.Models.HoiDap>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Câu hỏi chờ xử lý";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary: #0d6efd;
+        --secondary: #6c757d;
+        --warning-bg: #fff3cd;
+        --warning-text: #856404;
+        --card-border: #e9ecef;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f4f6f9;
+    }
+
+    /* Đẩy footer xuống dưới cùng */
+    .content-wrapper {
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Header */
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #e9ecef;
+    }
+
+    .page-title {
+        color: #2c3e50;
+        font-weight: 700;
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .btn-add {
+        background-color: var(--primary);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
+        transition: all 0.3s;
+    }
+
+        .btn-add:hover {
+            background-color: #0b5ed7;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    /* Card Style */
+    .qa-card {
+        background: white;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+        transition: transform 0.2s;
+    }
+
+        .qa-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+    .qa-header {
+        padding: 15px 20px;
+        background: #fdfdfd;
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .qa-body {
+        padding: 20px;
+    }
+
+    /* Badge trạng thái */
+    .status-badge {
+        background-color: var(--warning-bg);
+        color: var(--warning-text);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        border: 1px solid #ffeeba;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .time-stamp {
+        font-size: 13px;
+        color: #999;
+    }
+
+    .question-content {
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+        line-height: 1.5;
+    }
+
+    .question-label {
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: 8px;
+        display: block;
+        font-size: 13px;
+        text-transform: uppercase;
+    }
+
+    /* Pagination */
+    .pagination-wrapper {
+        margin-top: auto;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .pagination {
+        display: inline-flex;
+        padding-left: 0;
+        list-style: none;
+    }
+
+        .pagination li {
+            margin: 0 2px;
+        }
+
+            .pagination li a, .pagination li span {
+                padding: 8px 16px;
+                border-radius: 6px;
+                border: 1px solid #dee2e6;
+                color: var(--primary);
+                text-decoration: none;
+                background: white;
+            }
+
+            .pagination li.active span {
+                background-color: var(--primary);
+                color: white;
+                border-color: var(--primary);
+            }
+</style>
+
+<div class="container py-4 content-wrapper">
+    <div class="col-md-10 mx-auto">
+
+        <div class="page-header">
+            <h3 class="page-title">
+                <i class="fas fa-hourglass-half text-warning me-2"></i> Câu hỏi chờ xử lý
+            </h3>
+            <a href="@Url.Action("Create", new { id = ViewBag.id })" class="btn-add">
+                <i class="fas fa-plus-circle me-1"></i> Gửi câu hỏi mới
+            </a>
+        </div>
+
+        @if (Model.Count == 0)
+        {
+            <div class="text-center py-5">
+                <img src="https://cdn-icons-png.flaticon.com/512/4076/4076432.png" width="80" style="opacity: 0.5" />
+                <p class="text-muted mt-3">Không có câu hỏi nào đang chờ xử lý.</p>
+            </div>
+        }
+
+        @foreach (var item in Model)
+        {
+            <div class="qa-card">
+                <div class="qa-header">
+                    <div class="time-stamp">
+                        <i class="far fa-clock me-1"></i>
+                        @item.NgayGui.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                    </div>
+
+                    @if (item.TrangThai == 0)
+                    {
+                        <span class="status-badge">
+                            <i class="fas fa-spinner fa-spin me-2"></i> Đang chờ giải đáp
+                        </span>
+                    }
+                </div>
+
+                <div class="qa-body">
+                    <span class="question-label"><i class="fas fa-question-circle"></i> Nội dung câu hỏi:</span>
+                    <div class="question-content">
+                        @Html.DisplayFor(modelItem => item.CauHoi)
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(item.TraLoi))
+                    {
+                        <hr style="border-top: 1px dashed #ccc;" />
+                        <div class="text-success mt-2">
+                            <strong><i class="fas fa-check-circle"></i> Đã trả lời:</strong> @Html.DisplayFor(modelItem => item.TraLoi)
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <div class="text-muted small">
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+            </div>
+
+            <div class="pagination-wrapper">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+                new PagedListRenderOptions
+                     {
+                    LiElementClasses = new string[] { "page-item" },
+                    UlElementClasses = new string[] { "pagination" }
+                })
+            </div>
+        </div>
+
+    </div>
+</div>

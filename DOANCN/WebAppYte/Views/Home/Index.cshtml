@@ -1,0 +1,211 @@
+﻿@model IEnumerable<WebAppYte.Models.Tintuc>
+@{
+    ViewBag.Title = "Trang Chủ";
+}
+
+<style>
+    :root {
+        --primary-color: #0d6efd; /* Màu chủ đạo y tế */
+        --hover-color: #0a58ca;
+    }
+
+    /* Banner Styles */
+    #bannerCarousel {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .carousel-item img {
+        height: 400px; /* Tăng chiều cao banner chút */
+        object-fit: cover;
+    }
+
+    /* Section Title */
+    .section-title {
+        position: relative;
+        display: inline-block;
+        color: #2c3e50;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+    /* News Card Styles */
+    .news-card {
+        transition: all 0.3s ease;
+        border: none;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+        }
+
+    .news-img-wrapper {
+        position: relative;
+        overflow: hidden;
+        height: 200px;
+    }
+
+        .news-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+    .news-card:hover .news-img-wrapper img {
+        transform: scale(1.05); /* Zoom nhẹ ảnh khi hover */
+    }
+
+    /* Badge Ngày đăng nằm đè lên ảnh */
+    .date-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        padding: 5px 10px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Cắt dòng văn bản thừa */
+    .text-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .text-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .category-tag {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 5px;
+        display: block;
+    }
+</style>
+
+<div class="container-fluid px-0 mb-5">
+    <div id="bannerCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <ol class="carousel-indicators">
+            <li data-target="#bannerCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#bannerCarousel" data-slide-to="1"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="~/Common/images/img1.jpg" class="d-block w-100" alt="Banner 1" />
+            </div>
+            <div class="item">
+                <img src="~/Common/images/img2.png" class="d-block w-100" alt="Banner 2" />
+            </div>
+        </div>
+
+        <a class="left carousel-control" href="#bannerCarousel" data-slide="prev" style="background: none;">
+            <span class="glyphicon glyphicon-chevron-left" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);"></span>
+        </a>
+        <a class="right carousel-control" href="#bannerCarousel" data-slide="next" style="background: none;">
+            <span class="glyphicon glyphicon-chevron-right" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);"></span>
+        </a>
+    </div>
+</div>
+
+<div class="container mb-5">
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="section-title">
+                Tin tức Y tế Mới nhất
+                <i class="glyphicon glyphicon-leaf text-success ml-2" style="font-size: 24px;"></i>
+            </h2>
+            <p class="text-muted">Cập nhật những thông tin sức khỏe bổ ích và tin tức nội bộ nhanh chóng.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="card h-100 news-card shadow-sm">
+
+                        <div class="news-img-wrapper">
+                            @if (!string.IsNullOrEmpty(item.Hinhanh))
+                            {
+                                <img src="~/images/tintuc/@item.Hinhanh" alt="@item.Tieude" />
+                            }
+                            else
+                            {
+                                <div class="d-flex align-items-center justify-content-center h-100 bg-light text-muted">
+                                    <span class="glyphicon glyphicon-picture" style="font-size: 30px;"></span>
+                                </div>
+                            }
+
+                            <div class="date-badge">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                @(item.Ngaydang.HasValue ? item.Ngaydang.Value.ToString("dd/MM/yyyy") : "--/--")
+                            </div>
+                        </div>
+
+                        <div class="card-body d-flex flex-column p-4">
+                            <span class="category-tag">@item.TheLoai</span>
+
+                            <h4 class="card-title fw-bold mt-1 mb-2">
+                                <a href="@Url.Action("Xemchitiet","Home", new { IDTintuc = item.IDTintuc })"
+                                   class="text-decoration-none text-dark hover-primary text-clamp-2"
+                                   title="@item.Tieude">
+                                    @item.Tieude
+                                </a>
+                            </h4>
+
+                            <p class="card-text text-secondary text-clamp-3 mb-4" style="font-size: 14px;">
+                                @item.Mota
+                            </p>
+
+                            <div class="mt-auto pt-3 border-top">
+                                <a href="@Url.Action("Xemchitiet","Home", new { IDTintuc = item.IDTintuc })"
+                                   class="btn btn-outline-primary btn-sm rounded-pill px-4 fw-bold">
+                                    Xem chi tiết <span class="glyphicon glyphicon-arrow-right ml-1"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center py-5">
+                <p class="text-muted">Chưa có tin tức nào được cập nhật.</p>
+            </div>
+        }
+    </div>
+</div>

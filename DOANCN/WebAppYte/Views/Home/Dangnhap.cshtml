@@ -1,0 +1,213 @@
+﻿@model WebAppYte.Models.DangNhap
+
+@{
+    ViewBag.Title = "Đăng Nhập Hệ Thống";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var nd = Session["nguoidung"] as WebAppYte.Models.NguoiDung;
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary-color: #0d6efd;
+        --primary-hover: #0b5ed7;
+        --bg-color: #f0f2f5;
+        --card-bg: #ffffff;
+        --text-muted: #6c757d;
+        --input-border: #ced4da;
+        --input-focus-shadow: rgba(13, 110, 253, 0.25);
+    }
+
+    body {
+        background-color: var(--bg-color);
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Wrapper căn giữa màn hình */
+    .login-wrapper {
+        min-height: 80vh; /* Chiều cao tối thiểu */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .login-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: none;
+        padding: 40px;
+        width: 100%;
+        max-width: 450px; /* Nhỏ hơn form đăng ký một chút cho gọn */
+    }
+
+    /* Header Styling */
+    .login-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .login-title {
+        font-weight: 700;
+        color: var(--primary-color);
+        font-size: 26px;
+        margin-bottom: 5px;
+    }
+
+    .login-subtitle {
+        color: var(--text-muted);
+        font-size: 14px;
+    }
+
+    /* Input Styling */
+    .form-label-custom {
+        font-weight: 600;
+        font-size: 14px;
+        color: #495057;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+        .form-label-custom i {
+            color: var(--primary-color);
+            width: 20px;
+            text-align: center;
+            margin-right: 5px;
+        }
+
+    .form-control-custom {
+        height: 48px;
+        border-radius: 8px;
+        border: 1px solid var(--input-border);
+        padding-left: 15px;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        background-color: #fdfdfd;
+    }
+
+        .form-control-custom:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px var(--input-focus-shadow);
+            background-color: #fff;
+        }
+
+    /* Button Styling */
+    .btn-login {
+        height: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+        border: none;
+        box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+        transition: transform 0.2s, box-shadow 0.2s;
+        color: white;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(13, 110, 253, 0.4);
+            color: white;
+        }
+
+    /* Footer Links */
+    .login-footer {
+        margin-top: 25px;
+        text-align: center;
+        font-size: 14px;
+        color: var(--text-muted);
+    }
+
+        .login-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+            .login-footer a:hover {
+                text-decoration: underline;
+            }
+
+    /* Custom Alert */
+    .alert-custom {
+        border-radius: 8px;
+        font-size: 14px;
+        border: none;
+    }
+
+    .validation-summary-errors ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+</style>
+
+<div class="login-wrapper">
+    <div class="login-card">
+        @using (Html.BeginForm("Dangnhap", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="login-header">
+                @if (nd == null)
+                {
+                    <h3 class="login-title">Chào mừng trở lại!</h3>
+                    <p class="login-subtitle">Đăng nhập để quản lý hồ sơ y tế của bạn</p>
+                }
+                else
+                {
+                    <div class="mb-3">
+                        <i class="fas fa-check-circle text-success" style="font-size: 40px;"></i>
+                    </div>
+                    <h4 class="text-success fw-bold">Đăng ký thành công!</h4>
+                    <p class="login-subtitle">Tài khoản <strong>@nd.TaiKhoan</strong> đã sẵn sàng.</p>
+                }
+            </div>
+
+            if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger alert-custom mb-3">
+                    @Html.ValidationSummary(true)
+                </div>
+            }
+
+            <div class="mb-3">
+                <label class="form-label-custom"><i class="fa fa-user"></i> Tài khoản</label>
+                @Html.TextBoxFor(m => m.TaiKhoan, new { @class = "form-control form-control-custom", placeholder = "Nhập tên đăng nhập..." })
+                @Html.ValidationMessageFor(m => m.TaiKhoan, "", new { @class = "text-danger small mt-1" })
+            </div>
+
+            <div class="mb-3">
+                <div class="d-flex justify-content-between">
+                    <label class="form-label-custom"><i class="fa fa-lock"></i> Mật khẩu</label>
+                    <a href="@Url.Action("QuenMatKhau", "Home")" class="text-decoration-none small text-muted" style="font-size: 13px;">Quên mật khẩu?</a>
+                </div>
+                @Html.PasswordFor(m => m.MatKhau, new { @class = "form-control form-control-custom", placeholder = "Nhập mật khẩu..." })
+                @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger small mt-1" })
+            </div>
+
+            if (ViewBag.Fail != null)
+            {
+                <div class="alert alert-danger alert-custom d-flex align-items-center" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <div>@ViewBag.Fail</div>
+                </div>
+            }
+
+            <button type="submit" class="btn btn-login">
+                <i class="fa fa-sign-in-alt me-2"></i> Đăng nhập
+            </button>
+
+            <div class="login-footer">
+                <p>Chưa có tài khoản? @Html.ActionLink("Đăng ký ngay", "Dangky")</p>
+                <p class="mt-2"><i class="fas fa-arrow-left small"></i> @Html.ActionLink("Về trang chủ", "Index", "Home")</p>
+            </div>
+        }
+    </div>
+</div>

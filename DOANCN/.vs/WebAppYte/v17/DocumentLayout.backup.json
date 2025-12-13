@@ -1,0 +1,587 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|c:\\users\\kim huong\\onedrive - tra vinh university\\desktop\\doancn\\doancn\\webappyte\\views\\bacsi\\quanlyhoidap.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\bacsi\\quanlyhoidap.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\bacsi\\traloicauhoi.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\bacsi\\traloicauhoi.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\bacsi\\lichdaxacnhan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\bacsi\\lichdaxacnhan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\bacsi\\lichdangcho.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\bacsi\\lichdangcho.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\bacsi\\kiemtralichhen.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\bacsi\\kiemtralichhen.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\bacsi\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\bacsi\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\hoidap\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\hoidap\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\hoidap\\listall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\hoidap\\listall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\hoidap\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\hoidap\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\hoidap\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\hoidap\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\hoidap\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\hoidap\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\hoidap\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\hoidap\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\nguoidung\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\nguoidung\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\nguoidung\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\nguoidung\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\nguoidung\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\nguoidung\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\home\\xemchitiet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\home\\xemchitiet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\home\\dangky.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\home\\dangky.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\hoidap\\cauhoichoxuly.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\hoidap\\cauhoichoxuly.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\home\\dangnhap.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\home\\dangnhap.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\controllers\\nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\controllers\\nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\areas\\admin\\controllers\\nguoidungscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\controllers\\nguoidungscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\models\\gioitinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\models\\gioitinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\areas\\admin\\views\\nguoidungs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\nguoidungs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\models\\modelweb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\models\\modelweb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\areas\\admin\\views\\homeadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\homeadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\areas\\admin\\controllers\\homeadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\controllers\\homeadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\webappyte\\areas\\admin\\views\\quantris\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\quantris\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Web.config",
+              "RelativeDocumentMoniker": "WebAppYte\\Web.config",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Web.config",
+              "RelativeToolTip": "WebAppYte\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-11-25T08:13:53.088Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Quanlyhoidap.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Quanlyhoidap.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Bacsi\\Quanlyhoidap.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Quanlyhoidap.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Bacsi\\Quanlyhoidap.cshtml",
+              "ViewState": "AgIAAA8BAAAAAAAAAAAAwCUBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T15:53:19.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Traloicauhoi.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Traloicauhoi.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Bacsi\\Traloicauhoi.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Traloicauhoi.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Bacsi\\Traloicauhoi.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAwF0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T15:37:57.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Lichdaxacnhan.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Lichdaxacnhan.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Bacsi\\Lichdaxacnhan.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Lichdaxacnhan.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Bacsi\\Lichdaxacnhan.cshtml",
+              "ViewState": "AgIAAD0BAAAAAAAAAAAAwFYBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T15:35:36.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Lichdangcho.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Lichdangcho.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Bacsi\\Lichdangcho.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Lichdangcho.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Bacsi\\Lichdangcho.cshtml",
+              "ViewState": "AgIAAD0BAAAAAAAAAAAAwFYBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T15:17:11.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Kiemtralichhen.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Kiemtralichhen.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Bacsi\\Kiemtralichhen.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Kiemtralichhen.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Bacsi\\Kiemtralichhen.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T15:11:20.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Bacsi\\Index.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Bacsi\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Bacsi\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T12:08:52.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Nguoidung\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Nguoidung\\Details.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Nguoidung\\Details.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Nguoidung\\Details.cshtml",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAAwK0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T11:53:58.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Nguoidung\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Nguoidung\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Nguoidung\\Edit.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Nguoidung\\Edit.cshtml",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAAwNgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T11:51:23.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Hoidap\\Create.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Create.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Hoidap\\Create.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAwFUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T11:19:03.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Hoidap\\Details.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Details.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Hoidap\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T11:48:47.762Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Hoidap\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Edit.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Hoidap\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T11:18:38.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Hoidap\\Index.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Hoidap\\Index.cshtml",
+              "ViewState": "AgIAAN0AAAAAAAAAAAAAAB0AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T11:10:46.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ListAll.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\ListAll.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Hoidap\\ListAll.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\ListAll.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Hoidap\\ListAll.cshtml",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAAwAMBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T11:46:26.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Delete.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Hoidap\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Delete.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Hoidap\\Delete.cshtml",
+              "ViewState": "AgIAADgAAAAAAAAAAAAAwFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T11:48:51.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Nguoidung\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Nguoidung\\Index.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Nguoidung\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Nguoidung\\Index.cshtml",
+              "ViewState": "AgIAANsAAAAAAAAAAAAAwPQAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T11:53:01.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Xemchitiet.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Home\\Xemchitiet.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Home\\Xemchitiet.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Home\\Xemchitiet.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Home\\Xemchitiet.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T11:49:23.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Cauhoichoxuly.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Cauhoichoxuly.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Hoidap\\Cauhoichoxuly.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Hoidap\\Cauhoichoxuly.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Hoidap\\Cauhoichoxuly.cshtml",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAAwOcAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T11:31:37.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Dangky.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Home\\Dangky.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Home\\Dangky.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Home\\Dangky.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Home\\Dangky.cshtml",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAqwNsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-04T00:59:16.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAAAqwNIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-04T16:32:49.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Dangnhap.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Home\\Dangnhap.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Home\\Dangnhap.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Home\\Dangnhap.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Home\\Dangnhap.cshtml",
+              "ViewState": "AgIAALcAAAAAAAAAAAAAAMIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-04T16:50:20.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "WebAppYte\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "WebAppYte\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAQwJYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T14:09:50.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "BundleConfig.cs",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\App_Start\\BundleConfig.cs",
+              "RelativeDocumentMoniker": "WebAppYte\\App_Start\\BundleConfig.cs",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\App_Start\\BundleConfig.cs",
+              "RelativeToolTip": "WebAppYte\\App_Start\\BundleConfig.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T13:23:52.58Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "FilterConfig.cs",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\App_Start\\FilterConfig.cs",
+              "RelativeDocumentMoniker": "WebAppYte\\App_Start\\FilterConfig.cs",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\App_Start\\FilterConfig.cs",
+              "RelativeToolTip": "WebAppYte\\App_Start\\FilterConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T13:23:51.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "WebAppYte\\App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "WebAppYte\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T13:23:45.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "NguoiDungsController.cs",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Areas\\Admin\\Controllers\\NguoiDungsController.cs",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Controllers\\NguoiDungsController.cs",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Areas\\Admin\\Controllers\\NguoiDungsController.cs",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Controllers\\NguoiDungsController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T02:20:12.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "NguoidungController.cs",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Controllers\\NguoidungController.cs",
+              "RelativeDocumentMoniker": "WebAppYte\\Controllers\\NguoidungController.cs",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Controllers\\NguoidungController.cs",
+              "RelativeToolTip": "WebAppYte\\Controllers\\NguoidungController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAiwEsAAAB2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T01:23:07.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\NguoiDungs\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\NguoiDungs\\Create.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\NguoiDungs\\Create.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\NguoiDungs\\Create.cshtml",
+              "ViewState": "AgIAAC4AAAAAAAAAAADwv1cAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T11:23:33.664Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "GioiTinh.cs",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Models\\GioiTinh.cs",
+              "RelativeDocumentMoniker": "WebAppYte\\Models\\GioiTinh.cs",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Models\\GioiTinh.cs",
+              "RelativeToolTip": "WebAppYte\\Models\\GioiTinh.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T01:13:01.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Edit.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Edit.cshtml",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T10:56:58.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\HomeAdmin\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\HomeAdmin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\HomeAdmin\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\HomeAdmin\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T08:15:42.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAI8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-25T08:36:16.948Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "modelWeb.cs",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Models\\modelWeb.cs",
+              "RelativeDocumentMoniker": "WebAppYte\\Models\\modelWeb.cs",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Models\\modelWeb.cs",
+              "RelativeToolTip": "WebAppYte\\Models\\modelWeb.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBQAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T08:17:31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "HomeAdminController.cs",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Areas\\Admin\\Controllers\\HomeAdminController.cs",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Controllers\\HomeAdminController.cs",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Areas\\Admin\\Controllers\\HomeAdminController.cs",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Controllers\\HomeAdminController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T08:15:30.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "NguoiDung.cs",
+              "DocumentMoniker": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Models\\NguoiDung.cs",
+              "RelativeDocumentMoniker": "WebAppYte\\Models\\NguoiDung.cs",
+              "ToolTip": "C:\\Users\\KIM HUONG\\OneDrive - Tra Vinh University\\Desktop\\DOANCN\\DOANCN\\WebAppYte\\Models\\NguoiDung.cs",
+              "RelativeToolTip": "WebAppYte\\Models\\NguoiDung.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAA6wEMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T11:26:07.011Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

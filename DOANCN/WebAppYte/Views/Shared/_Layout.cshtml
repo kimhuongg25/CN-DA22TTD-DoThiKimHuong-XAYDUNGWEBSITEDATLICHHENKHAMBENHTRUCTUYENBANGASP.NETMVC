@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Đặt lịch khám bệnh</title>
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/fullcalendarcss")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Common/css/StyleMenu.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/Common/Icon/css/all.css" rel="stylesheet" />
+
+    <style>
+        body { color: #000; font-family: 'Segoe UI', sans-serif; }
+        .navbar-custom {
+            background-color: #4267B2;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        .navbar-custom .nav > li > a {
+            color: #fff !important;
+            font-weight: 600;
+            padding: 16px 18px;
+        }
+        .navbar-custom .nav > li > a:hover {
+            background: rgba(255,255,255,.15) !important;
+        }
+        footer {
+            background: #f1f1f1;
+            padding: 25px 0;
+            margin-top: 40px;
+            border-top: 3px solid #4267B2;
+        }
+        footer h3 {
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+        }
+        .logo-img {
+            margin-top: 8px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    @using WebAppYte.Models
+    @{
+        var u = Session["user"] as NguoiDung;
+        var userBS = Session["userBS"] as QuanTri;
+    }
+
+    <!-- ========= NAV BAR ========= -->
+    <div class="navbar navbar-inverse navbar-fixed-top navbar-custom">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <img src="~/Common/images/YTE.jpg" width="90" height="45" class="logo-img" />
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <li>@Html.ActionLink("TRANG CHỦ", "Index", "Home")</li>
+
+                    @if (u == null && userBS == null)
+                    {
+                        <li>@Html.ActionLink("HỎI ĐÁP ONLINE", "ListAll", "Hoidap")</li>
+                        <li>@Html.ActionLink("TRUNG TÂM Y TẾ", "Index", "Trungtamyte")</li>
+                    }
+
+                    @if (u != null && userBS == null)
+                    {
+                        <!-- USER -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">HỎI ĐÁP <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("Index", "Hoidap", new { id = u.IDNguoiDung })">CÂU HỎI CỦA BẠN</a></li>
+                                <li><a href="@Url.Action("Cauhoichoxuly", "Hoidap", new { id = u.IDNguoiDung })">CHỜ GIẢI ĐÁP</a></li>
+                                <li><a href="@Url.Action("ListAll", "Hoidap")">TẤT CẢ CÂU HỎI</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ĐẶT LỊCH <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("Index", "LichKham", new { id = u.IDNguoiDung })">LỊCH HẸN CỦA BẠN</a></li>
+                                <li><a href="@Url.Action("Create", "LichKham")">ĐẶT LỊCH NGAY</a></li>
+                            </ul>
+                        </li>
+
+                        <li>@Html.ActionLink("TRUNG TÂM Y TẾ", "Index", "Trungtamyte")</li>
+                        <li>@Html.ActionLink("DANH SÁCH BÁC SĨ", "Index", "Bacsi")</li>
+                    }
+
+                    @if (userBS != null)
+                    {
+                        <!-- BÁC SĨ -->
+                        <li>@Html.ActionLink("TRẢ LỜI CÂU HỎI", "Quanlyhoidap", "Bacsi")</li>
+                        <li>@Html.ActionLink("LỊCH KHÁM", "Kiemtralichhen", "Bacsi")</li>
+                    }
+                </ul>
+
+                <!-- ========= LOGIN AREA ========= -->
+                <ul class="nav navbar-nav navbar-right">
+                    @if (u == null && userBS == null)
+                    {
+                        <li>@Html.ActionLink("ĐĂNG KÝ", "Dangky", "Home")</li>
+                        <li>@Html.ActionLink("ĐĂNG NHẬP", "Dangnhap", "Home")</li>
+                    }
+                    else if (u != null)
+                    {
+                        <li><a style="color:yellow">@u.TaiKhoan</a></li>
+                        <li>@Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "Home")</li>
+                    }
+                    else if (userBS != null)
+                    {
+                        <li><a style="color:yellow">Bác sĩ: @userBS.HoTen</a></li>
+                        <li>@Html.ActionLink("ĐĂNG XUẤT", "DangXuatBS", "Home")</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========= CONTENT ========= -->
+    <div class="container body-content" style="margin-top:75px">
+        @RenderBody()
+    </div>
+
+    <!-- ========= FOOTER ========= -->
+    <footer>
+        <div class="container text-center">
+            <h3>WEBSITE ĐẶT LỊCH KHÁM BỆNH</h3>
+            <p style="margin-top:5px;">© @DateTime.Now.Year - Sở Y Tế</p>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/fullcalendarjs")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿namespace WebAppYte.Models
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    [Table("QuanTri")]
+    public partial class QuanTri
+    {
+        public QuanTri()
+        {
+            HoiDaps = new HashSet<HoiDap>();
+            LichKhams = new HashSet<LichKham>();
+        }
+
+        [Key]
+        public int IDQuanTri { get; set; }
+
+        [StringLength(50)]
+        [Display(Name = "Tài khoản")]
+        public string TaiKhoan { get; set; }
+
+        [StringLength(20)]
+        [Display(Name = "Mật khẩu")]
+        public string MatKhau { get; set; }
+
+        [Display(Name = "Vai trò")]
+        public int? VaiTro { get; set; }
+
+        [Display(Name = "Thông tin bác sĩ")]
+        public string ThongTinBacSi { get; set; }
+
+        [StringLength(50)]
+        [Display(Name = "Trình độ")]
+        public string TrinhDo { get; set; }
+
+        [Display(Name = "Khoa")]
+        public int? IDKhoa { get; set; }
+
+        [Display(Name = "Họ tên")]
+        public string HoTen { get; set; }
+
+        [StringLength(50)]
+        [Display(Name = "Ảnh bìa")]
+        public string AnhBia { get; set; }
+
+        public virtual ICollection<HoiDap> HoiDaps { get; set; }
+
+        public virtual Khoa Khoa { get; set; }
+
+        public virtual ICollection<LichKham> LichKhams { get; set; }
+    }
+}

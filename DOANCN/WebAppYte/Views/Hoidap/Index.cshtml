@@ -1,0 +1,246 @@
+﻿@model PagedList.IPagedList<WebAppYte.Models.HoiDap>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Lịch sử tư vấn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary: #0d6efd;
+        --secondary: #6c757d;
+        --success: #198754;
+        --warning: #ffc107;
+        --light-bg: #f8f9fa;
+        --card-border: #e9ecef;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f4f6f9;
+    }
+
+    /* --- CẤU HÌNH ĐẨY FOOTER --- */
+    .content-wrapper {
+        /* Chiếm tối thiểu 80% chiều cao màn hình để đẩy footer xuống */
+        min-height: 60vh; 
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Header Section */
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #e9ecef;
+    }
+
+    .page-title {
+        color: #2c3e50;
+        font-weight: 700;
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .btn-add-question {
+        background-color: var(--primary);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
+        transition: all 0.3s;
+    }
+
+    .btn-add-question:hover {
+        background-color: #0b5ed7;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* Q&A Card Style */
+    .qa-card {
+        background: white;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        margin-bottom: 25px;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+    }
+
+    .qa-card:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    /* Card Header */
+    .qa-header {
+        background-color: #f8f9fa;
+        padding: 12px 20px;
+        font-size: 13px;
+        color: var(--secondary);
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--card-border);
+    }
+
+    .qa-body {
+        padding: 20px;
+    }
+
+    /* Question Section */
+    .qa-question {
+        margin-bottom: 20px;
+    }
+
+    .qa-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .text-q { color: var(--primary); }
+    .text-a { color: var(--success); }
+
+    .qa-content {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        font-weight: 500;
+    }
+
+    /* Answer Section */
+    .qa-answer {
+        background-color: #f1fcf5;
+        border-left: 4px solid var(--success);
+        padding: 15px;
+        border-radius: 4px;
+        position: relative;
+    }
+
+    .qa-answer.pending {
+        background-color: #fff9e6;
+        border-left: 4px solid var(--warning);
+        color: #856404;
+    }
+
+    /* Pagination Styling */
+    .pagination-container {
+        text-align: center;
+        margin-top: auto; /* Đẩy phân trang xuống dưới nếu card ngắn */
+        padding-top: 20px;
+    }
+    
+    .pagination {
+        display: inline-flex;
+        padding-left: 0;
+        list-style: none;
+    }
+    
+    .pagination li {
+        margin: 0 2px;
+    }
+
+    .pagination li a, .pagination li span {
+        padding: 8px 16px;
+        border-radius: 6px;
+        border: 1px solid #dee2e6;
+        color: var(--primary);
+        text-decoration: none;
+        background: white;
+    }
+
+    .pagination li.active span {
+        background-color: var(--primary);
+        color: white;
+        border-color: var(--primary);
+    }
+</style>
+
+<div class="container py-4 content-wrapper">
+    <div class="col-md-10 mx-auto">
+        
+        <div class="page-header">
+            <h3 class="page-title"><i class="fas fa-notes-medical text-danger me-2"></i> Câu hỏi của bạn</h3>
+            <a href="@Url.Action("Create", new { id = ViewBag.id })" class="btn-add-question">
+                <i class="fas fa-plus-circle me-1"></i> Gửi câu hỏi mới
+            </a>
+        </div>
+
+        @if (Model.Count == 0)
+        {
+            <div class="text-center py-5">
+                <img src="https://cdn-icons-png.flaticon.com/512/7486/7486744.png" width="100" style="opacity: 0.5" />
+                <p class="text-muted mt-3">Bạn chưa gửi câu hỏi nào.</p>
+            </div>
+        }
+
+        @foreach (var item in Model)
+        {
+            <div class="qa-card">
+                <div class="qa-header">
+                    <span>
+                        <i class="fas fa-user-circle me-1"></i> 
+                        Người gửi: <b>@item.NguoiDung.HoTen</b>
+                    </span>
+                    <span>
+                        <i class="far fa-clock me-1"></i> 
+                        @item.NgayGui.Value.ToString("dd/MM/yyyy HH:mm")
+                    </span>
+                </div>
+
+                <div class="qa-body">
+                    <div class="qa-question">
+                        <span class="qa-label text-q"><i class="fas fa-question-circle"></i> Câu hỏi:</span>
+                        <div class="qa-content">
+                            @Html.DisplayFor(modelItem => item.CauHoi)
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(item.TraLoi))
+                    {
+                        <div class="qa-answer">
+                            <span class="qa-label text-a"><i class="fas fa-user-md"></i> Bác sĩ trả lời:</span>
+                            <div class="qa-content">
+                                @Html.DisplayFor(modelItem => item.TraLoi)
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="qa-answer pending">
+                            <i class="fas fa-hourglass-half me-2"></i>
+                            Câu hỏi đang chờ bác sĩ phản hồi...
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        <div class="d-flex justify-content-between align-items-center mt-4">
+            <div class="text-muted small">
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trên tổng số @Model.PageCount
+            </div>
+            
+            <div class="pagination-wrapper">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), 
+                new PagedListRenderOptions {
+                    LiElementClasses = new string[] { "page-item" },
+                    UlElementClasses = new string[] { "pagination" }
+                })
+            </div>
+        </div>
+
+    </div>
+</div>
