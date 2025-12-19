@@ -11,7 +11,6 @@
 <style>
     :root {
         --primary: #0d6efd;
-        --secondary: #6c757d;
         --bg-color: #f4f6f9;
         --card-border: #e9ecef;
         --text-dark: #2c3e50;
@@ -24,13 +23,12 @@
 
     .content-wrapper {
         min-height: 85vh;
-        /* THAY ĐỔI: Giảm padding-top xuống 20px để nội dung xích lên trên */
-        padding: 0px 0 0px 0;
+        padding: 20px 0 40px;
     }
 
+    /* ===== HEADER ===== */
     .page-header {
         text-align: center;
-        /* THAY ĐỔI: Giảm khoảng cách dưới tiêu đề */
         margin-bottom: 30px;
     }
 
@@ -38,41 +36,44 @@
         font-weight: 800;
         color: var(--primary);
         text-transform: uppercase;
-        margin-bottom: 5px; /* Giảm khoảng cách giữa tiêu đề lớn và phụ đề */
         font-size: 28px;
+        margin-bottom: 5px;
     }
 
-    /* Doctor Card - Single Column Style */
+    /* ===== WRAPPER CĂN GIỮA (QUAN TRỌNG) ===== */
+    .doctor-list-wrapper {
+        max-width: 900px; /* giống form */
+        margin: 0 auto; /* 🎯 CĂN GIỮA NGANG */
+    }
+
+    /* ===== CARD ===== */
     .doctor-card {
         background: white;
         border-radius: 16px;
         border: 1px solid var(--card-border);
-        transition: transform 0.3s, box-shadow 0.3s;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
         padding: 25px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         margin-bottom: 20px;
+        display: flex;
+        align-items: flex-start;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        transition: all 0.3s;
     }
 
-    .doctor-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        border-color: #b6d4fe;
-    }
+        .doctor-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: #b6d4fe;
+        }
 
     /* Avatar */
     .doctor-avatar-wrapper {
         flex-shrink: 0;
-        margin-right: 30px;
-        margin-top: 5px;
+        margin-right: 25px;
     }
 
     .doctor-img {
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
         border-radius: 50%;
         object-fit: cover;
         border: 4px solid #f8f9fa;
@@ -81,9 +82,7 @@
 
     /* Info */
     .doctor-info {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
+        flex: 1;
     }
 
     .doctor-name {
@@ -91,15 +90,13 @@
         font-weight: 700;
         color: var(--text-dark);
         margin-bottom: 10px;
-        line-height: 1.3;
     }
 
-    /* Badges */
     .doctor-badges {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
     }
 
     .badge-custom {
@@ -107,45 +104,38 @@
         padding: 6px 12px;
         border-radius: 6px;
         font-weight: 600;
-        line-height: 1.4;
         display: inline-flex;
         align-items: center;
     }
 
     .badge-level {
-        background-color: #e7f1ff;
+        background: #e7f1ff;
         color: #0d6efd;
         border: 1px solid #cce5ff;
-        white-space: nowrap;
     }
 
     .badge-dept {
-        background-color: #e6f8f0;
+        background: #e6f8f0;
         color: #0f5132;
         border: 1px solid #d1e7dd;
-        text-align: left;
     }
 
     .doctor-desc {
         font-size: 15px;
         color: #555;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        margin-bottom: 0;
         line-height: 1.6;
+        margin-bottom: 0;
     }
 
-    /* CTA Section */
+    /* ===== CTA ===== */
     .cta-section {
         margin-top: 40px;
-        background: #fdfdfd;
+        background: #fff;
         padding: 40px;
         border-radius: 16px;
         text-align: center;
         border: 1px solid #eee;
-        max-width: 800px;
+        max-width: 900px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -156,22 +146,40 @@
         font-weight: 700;
         text-decoration: none;
         color: white;
-        transition: all 0.2s;
         display: inline-flex;
         align-items: center;
-        margin: 0 10px;
+        transition: 0.2s;
     }
 
-    .btn-cta:hover { transform: translateY(-2px); color: white; }
-    .btn-booking { background: #0d6efd; box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3); }
-    .btn-ask { background: #198754; box-shadow: 0 4px 10px rgba(25, 135, 84, 0.3); }
+    .btn-booking {
+        background: #0d6efd;
+    }
 
-    /* Mobile */
+    .btn-ask {
+        background: #198754;
+    }
+
+    .btn-cta:hover {
+        transform: translateY(-2px);
+        color: white;
+    }
+
+    /* ===== MOBILE ===== */
     @@media (max-width: 768px) {
-        .doctor-card { flex-direction: column; text-align: center; align-items: center; }
-        .doctor-avatar-wrapper { margin-right: 0; margin-bottom: 15px; }
-        .doctor-badges { justify-content: center; }
-        .doctor-img { width: 100px; height: 100px; }
+        .doctor-card {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .doctor-avatar-wrapper {
+            margin-right: 0;
+            margin-bottom: 15px;
+        }
+
+        .doctor-badges {
+            justify-content: center;
+        }
     }
 </style>
 
@@ -182,58 +190,54 @@
         <p class="text-muted">Các bác sĩ đầu ngành, tận tâm và giàu kinh nghiệm</p>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10 col-12">
-
-            @foreach (var item in Model)
-            {
-                <div class="doctor-card">
-                    <div class="doctor-avatar-wrapper">
-                        @if (!string.IsNullOrEmpty(item.AnhBia))
-                        {
-                            <img src="~/Common/images/@item.AnhBia" class="doctor-img" alt="@item.HoTen" onerror="this.src='~/Common/images/default.png'" />
-                        }
-                        else
-                        {
-                            <img src="~/Common/images/default.png" class="doctor-img" alt="Default Avatar" />
-                        }
-                    </div>
-
-                    <div class="doctor-info">
-                        <span class="doctor-name">BS. @item.HoTen</span>
-
-                        <div class="doctor-badges">
-                            @if (!string.IsNullOrEmpty(item.TrinhDo))
-                            {
-                                <span class="badge-custom badge-level">
-                                    <i class="fas fa-graduation-cap me-1"></i> @item.TrinhDo
-                                </span>
-                            }
-                            @if (item.Khoa != null)
-                            {
-                                <span class="badge-custom badge-dept">
-                                    <i class="fas fa-hospital-user me-1"></i> @item.Khoa.TenKhoa
-                                </span>
-                            }
-                        </div>
-
-                        <p class="doctor-desc" title="@item.ThongTinBacSi">
-                            @(string.IsNullOrEmpty(item.ThongTinBacSi) ? "Liên hệ để biết thêm chi tiết về lịch khám và chuyên môn." : item.ThongTinBacSi)
-                        </p>
-                    </div>
+    <!-- 🎯 DANH SÁCH BÁC SĨ – NẰM GIỮA -->
+    <div class="doctor-list-wrapper">
+        @foreach (var item in Model)
+        {
+            <div class="doctor-card">
+                <div class="doctor-avatar-wrapper">
+                    <img src="~/Common/images/@(string.IsNullOrEmpty(item.AnhBia) ? "default.png" : item.AnhBia)"
+                         class="doctor-img"
+                         alt="@item.HoTen"
+                         onerror="this.src='~/Common/images/default.png'" />
                 </div>
-            }
 
-        </div>
+                <div class="doctor-info">
+                    <div class="doctor-name">BS. @item.HoTen</div>
+
+                    <div class="doctor-badges">
+                        @if (!string.IsNullOrEmpty(item.TrinhDo))
+                        {
+                            <span class="badge-custom badge-level">
+                                <i class="fas fa-graduation-cap me-1"></i> @item.TrinhDo
+                            </span>
+                        }
+                        @if (item.Khoa != null)
+                        {
+                            <span class="badge-custom badge-dept">
+                                <i class="fas fa-hospital-user me-1"></i> @item.Khoa.TenKhoa
+                            </span>
+                        }
+                    </div>
+
+                    <p class="doctor-desc">
+                        @(string.IsNullOrEmpty(item.ThongTinBacSi)
+                            ? "Liên hệ để biết thêm chi tiết về lịch khám và chuyên môn."
+                            : item.ThongTinBacSi)
+                    </p>
+                </div>
+            </div>
+        }
     </div>
 
+    <!-- CTA -->
     <div class="cta-section">
-        <h4 class="fw-bold text-dark mb-3">Bạn cần hỗ trợ y tế?</h4>
+        <h4 class="fw-bold mb-3">Bạn cần hỗ trợ y tế?</h4>
         <div class="d-flex justify-content-center flex-wrap gap-3">
             <a href="@Url.Action("Index", "LichKham")" class="btn-cta btn-booking">
                 <i class="far fa-calendar-check me-2"></i> ĐẶT LỊCH KHÁM
             </a>
-            <a href="@Url.Action("Index", "Hoidap", new { id = @ViewBag.id })" class="btn-cta btn-ask">
+            <a href="@Url.Action("Index", "Hoidap")" class="btn-cta btn-ask">
                 <i class="far fa-comment-dots me-2"></i> GỬI CÂU HỎI
             </a>
         </div>

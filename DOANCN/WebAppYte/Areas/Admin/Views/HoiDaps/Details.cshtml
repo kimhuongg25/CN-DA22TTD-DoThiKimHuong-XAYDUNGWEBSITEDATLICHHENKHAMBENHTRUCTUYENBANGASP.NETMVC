@@ -1,75 +1,243 @@
 ﻿@model WebAppYte.Models.HoiDap
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết Hỏi Đáp";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
 }
 
-<h2>Details</h2>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-<div>
-    <h4>HoiDap</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiDung.HoTen)
-        </dt>
+<style>
+    :root {
+        --primary: #4e73df;
+        --secondary: #858796;
+        --success: #1cc88a;
+        --warning: #f6c23e;
+        --bg-light: #f8f9fc;
+        --border-color: #e3e6f0;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.NguoiDung.HoTen)
-        </dd>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fc;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.QuanTri.TaiKhoan)
-        </dt>
+    /* Card Styling */
+    .detail-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
+        margin: 30px auto;
+        max-width: 1000px;
+        overflow: hidden;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.QuanTri.TaiKhoan)
-        </dd>
+    .card-header {
+        background-color: white;
+        padding: 20px 30px;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CauHoi)
-        </dt>
+    .card-title {
+        margin: 0;
+        font-weight: 700;
+        color: #4e73df;
+        font-size: 20px;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.CauHoi)
-        </dd>
+    .card-body {
+        padding: 30px;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TraLoi)
-        </dt>
+    /* Content Styling */
+    .section-title {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        color: #858796;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #e3e6f0;
+        padding-bottom: 5px;
+        display: inline-block;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.TraLoi)
-        </dd>
+    .info-group {
+        margin-bottom: 20px;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayGui)
-        </dt>
+    .info-label {
+        font-size: 13px;
+        color: #858796;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 5px;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayGui)
-        </dd>
+    .info-value {
+        font-size: 15px;
+        color: #5a5c69;
+        font-weight: 500;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GhiChu)
-        </dt>
+    /* Highlight Boxes */
+    .content-box {
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid transparent;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.GhiChu)
-        </dd>
+    .question-box {
+        background-color: #f0f4ff;
+        border-left-color: var(--primary);
+        color: #2c3e50;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TrangThai)
-        </dt>
+    .answer-box {
+        background-color: #f0fdf4;
+        border-left-color: var(--success);
+        color: #1b4d3e;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.TrangThai)
-        </dd>
+    /* Status Badge */
+    .badge-custom {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-block;
+    }
+    .status-done { background: #d1fae5; color: #065f46; }
+    .status-pending { background: #fef3c7; color: #92400e; }
 
-    </dl>
+    /* Footer Buttons */
+    .card-footer {
+        background-color: #f8f9fc;
+        padding: 15px 30px;
+        border-top: 1px solid var(--border-color);
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .btn-action {
+        text-decoration: none;
+        padding: 8px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: 0.2s;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .btn-edit { background-color: var(--warning); color: #fff; }
+    .btn-edit:hover { background-color: #e0a800; color: white; }
+
+    .btn-back { background-color: #e2e6ea; color: #5a5c69; }
+    .btn-back:hover { background-color: #dbe2e8; color: #2e343a; }
+
+    /* Grid */
+    .row { display: flex; flex-wrap: wrap; margin: 0 -15px; }
+    .col-md-6 { width: 50%; padding: 0 15px; box-sizing: border-box; }
+
+    @@media (max-width: 768px) {
+        .col-md-6 { width: 100%; }
+    }
+</style>
+
+<div class="detail-card">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-info-circle me-2"></i> Chi tiết Câu hỏi & Phản hồi
+        </h3>
+        <div>
+            @if (Model.TrangThai == 1)
+            {
+                <span class="badge-custom status-done"><i class="fas fa-check-circle"></i> Đã trả lời</span>
+            }
+            else
+            {
+                <span class="badge-custom status-pending"><i class="fas fa-clock"></i> Chờ xử lý</span>
+            }
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="section-title text-primary">Thông tin người gửi</div>
+
+                <div class="info-group">
+                    <span class="info-label"><i class="fas fa-user"></i> Người hỏi</span>
+                    <div class="info-value">@Html.DisplayFor(model => model.NguoiDung.HoTen)</div>
+                </div>
+
+                <div class="info-group">
+                    <span class="info-label"><i class="far fa-calendar-alt"></i> Ngày gửi</span>
+                    <div class="info-value">
+                        @(Model.NgayGui.HasValue ? Model.NgayGui.Value.ToString("dd/MM/yyyy HH:mm") : "---")
+                    </div>
+                </div>
+
+                <span class="info-label"><i class="fas fa-question-circle"></i> Nội dung câu hỏi</span>
+                <div class="content-box question-box">
+                    <strong>"</strong> @Html.DisplayFor(model => model.CauHoi) <strong>"</strong>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="border-left: 1px dashed #e3e6f0;">
+                <div class="section-title text-success">Thông tin phản hồi</div>
+
+                <div class="info-group">
+                    <span class="info-label"><i class="fas fa-user-shield"></i> Người trả lời</span>
+                    <div class="info-value">
+                        @if (Model.QuanTri != null)
+                        {
+                            @Html.DisplayFor(model => model.QuanTri.TaiKhoan)
+                        }
+                        else
+                        {
+                            <span class="text-muted">---</span>
+                        }
+                    </div>
+                </div>
+
+                <span class="info-label"><i class="fas fa-reply"></i> Nội dung trả lời</span>
+                <div class="content-box answer-box">
+                    @if (!string.IsNullOrEmpty(Model.TraLoi))
+                    {
+                        @Html.DisplayFor(model => model.TraLoi)
+                    }
+                    else
+                    {
+                        <span class="text-muted"><i>Chưa có câu trả lời.</i></span>
+                    }
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.GhiChu))
+                {
+                    <div class="info-group">
+                        <span class="info-label"><i class="fas fa-sticky-note"></i> Ghi chú nội bộ</span>
+                        <div class="info-value text-muted">@Html.DisplayFor(model => model.GhiChu)</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <a href="@Url.Action("Edit", new { id = Model.IDHoidap })" class="btn-action btn-edit">
+            <i class="fas fa-edit me-2"></i> Chỉnh sửa / Trả lời
+        </a>
+        <a href="@Url.Action("Index")" class="btn-action btn-back">
+            <i class="fas fa-arrow-left me-2"></i> Quay lại
+        </a>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDHoidap }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

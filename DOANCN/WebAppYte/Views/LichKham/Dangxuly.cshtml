@@ -2,104 +2,302 @@
 @using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lịch khám cá nhân";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var u = Session["user"] as WebAppYte.Models.NguoiDung;
 }
-<style type="text/css">
-    .imgavt {
-        margin-right: 15px;
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
+        font-size: 16.5px;
+    }
+
+    .page-title {
+        font-weight: 800;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 26px;
+    }
+
+    /* Filter Buttons */
+    .filter-group .btn {
+        border-radius: 20px;
+        margin-right: 10px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        transition: all 0.2s;
+    }
+
+    .filter-group .btn-outline-secondary:hover {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    /* Appointment Card */
+    .appointment-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+        padding: 20px;
+        border-left: 5px solid #ddd;
+        transition: transform 0.2s;
+    }
+
+        .appointment-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+    /* Status Colors */
+    .status-pending {
+        border-left-color: #ffc107 !important;
+    }
+
+    .status-confirmed {
+        border-left-color: #0d6efd !important;
+    }
+
+    .status-completed {
+        border-left-color: #198754 !important;
+    }
+
+    /* Avatar */
+    .doctor-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #f8f9fa;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Content Typography */
+    .info-label {
+        font-size: 1rem;
+        color: #6c757d;
+        margin-bottom: 2px;
+    }
+
+    .info-value {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .problem-text {
+        font-style: italic;
+        color: #555;
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 8px;
+        display: inline-block;
+        width: 100%;
+        font-size: 1.8rem;
+    }
+
+    /* Action Buttons */
+    .btn-action {
+        width: 100%;
+        margin-bottom: 8px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+
+    /* Status Badges */
+    .badge-status {
+        padding: 8px 12px;
+        border-radius: 20px;
+        font-size: 1rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+    .badge-warning {
+        background: #fff3cd;
+        color: #856404;
+    }
+
+    .badge-primary {
+        background: #cfe2ff;
+        color: #084298;
+    }
+
+    .badge-success {
+        background: #d1e7dd;
+        color: #0f5132;
+    }
+
+    /* Pagination */
+    .pagination-container {
+        text-align: center;
+        margin-top: 30px;
     }
 </style>
 
+<div class="container py-4">
 
-<h2>Lịch khám của bạn</h2>
-<h4><i> Chú ý : Thời gian tư vấn tối đa cho mỗi lần tư vấn là : 40 phút</i></h4>
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+        <div>
+            <h2 class="page-title"><i class="far fa-calendar-alt text-primary"></i> Lịch khám của bạn</h2>
+            <p class="text-muted mb-0"><i class="fas fa-info-circle"></i> Thời gian tư vấn tối đa: 40 phút/phiên</p>
+        </div>
 
-
-
-<div>
-    <button class="btn-default">
-        <b>@Html.ActionLink("Đặt mới", "Create")</b>
-    </button>
-    <button class="btn-default">
-        <a href="@Url.Action("Dangxuly", "LichKham", new { id = u.IDNguoiDung  })">Đang xác nhận</a>
-    </button>
-    <button class="btn-default">
-        <a href="@Url.Action("Daxacnhan", "LichKham", new { id = u.IDNguoiDung  })">Đã xác nhận</a>
-    </button>
-    <button class="btn-default">
-        <a href="@Url.Action("Datuvanxong", "LichKham", new { id = u.IDNguoiDung  })">Đã xong</a>
-    </button>
-</div>
-<br />
-<div style="float:left">
-    <div class="col-md-12">
-
-
-        @foreach (var item in Model)
+        @if (u != null)
         {
-            <img class="imgavt" src="~/images/images/avatar.jpg" width="190" height="190" style="float:left" />
-
-            <b>Người đặt lịch: @item.NguoiDung.HoTen</b>
-            <h4>Bác sĩ tư vấn: @item.QuanTri.HoTen</h4>
-            <h4>Hẹn vào lúc: @item.BatDau.Value.ToString("dd/MM/yyyy HH:mm:ss")</h4>
-            <h4>Nội dung tư vấn : @item.ChuDe</h4>
-
-            {
-                if (@item.TrangThai == 0)
-                {
-                    <h5 style="color:blueviolet"> Đang chờ xác nhận. </h5>
-                    <button>
-                        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.IDLichKham })
-                    </button>
-                    <button>
-                        @Html.ActionLink("Xóa lịch", "Delete", new { id = item.IDLichKham })
-                    </button>
-                    <hr />
-                }
-                else if (@item.TrangThai == 1)
-                {
-                    <h5 style="color:red"> Đã xác nhận lịch </h5>
-                    DateTime now = DateTime.Now;
-                    DateTime bd = (DateTime)item.BatDau;
-                    int sosanh = DateTime.Compare(now, bd);
-                    TimeSpan i = bd.Subtract(now);
-                    if (sosanh < 0)
-                    {
-                        <h4>Còn @i.Days ngày: @i.Hours giờ : @i.Minutes phút :@i.Seconds giây</h4>
-                        <button class="btn-success"> Chưa đến giờ tư vấn</button>
-                        <hr />
-                    }
-                    else
-                    {
-                        <h4>Link tư vấn: <button class="btn-info"><a href="@item.DiaChi" style="color:white"> BẮT ĐẦU CUỘC GỌI</a></button> </h4>
-                        <hr />
-                    }
-                }
-                else if (@item.TrangThai == 2)
-                {
-                    <h5 style="color:red"> Đã tư vấn xong. </h5>
-                    //<h4>Kết thúc lúc: @item.KetThuc.Value.ToString("dd/MM/yyyy HH:mm:ss")</h4>
-                    <h4>Ghi chú tư vấn : @item.KetQuaKham</h4>
-                    <hr />
-
-                }
-                else
-                {
-                    <h5 style="color:red"> Lỗi </h5>
-                }
-
-            }
+            <div class="filter-group mt-3 mt-md-0">
+                <a href="@Url.Action("Create")" class="btn btn-warning text-dark shadow-sm">
+                    <i class="fas fa-plus"></i> Đặt mới
+                </a>
+                <a href="@Url.Action("Dangxuly", "LichKham", new { id = u.IDNguoiDung })" class="btn btn-outline-secondary">
+                    Đang chờ
+                </a>
+                <a href="@Url.Action("Daxacnhan", "LichKham", new { id = u.IDNguoiDung })" class="btn btn-outline-primary">
+                    Đã xác nhận
+                </a>
+                <a href="@Url.Action("Datuvanxong", "LichKham", new { id = u.IDNguoiDung })" class="btn btn-outline-success">
+                    Hoàn thành
+                </a>
+            </div>
         }
-        <br />
-        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-
-        @Html.PagedListPager(Model, page => Url.Action("Index",
-            new { page }))
     </div>
+
+    <hr class="mb-4" />
+
+    @if (u == null)
+    {
+        <div class="alert alert-warning text-center py-4 rounded-3 shadow-sm">
+            <i class="fas fa-exclamation-triangle fa-2x mb-3"></i>
+            <h4>Vui lòng đăng nhập để xem lịch khám</h4>
+            <a href="@Url.Action("Login", "Account")" class="btn btn-primary mt-2">Đăng nhập ngay</a>
+        </div>
+    }
+    else
+    {
+        if (Model == null || !Model.Any())
+        {
+            <div class="text-center py-5">
+                <img src="https://cdn-icons-png.flaticon.com/512/7486/7486744.png" width="120" style="opacity: 0.5;" />
+                <h4 class="text-muted mt-3">Bạn chưa có lịch khám nào trong danh sách này.</h4>
+                <a href="@Url.Action("Create")" class="btn btn-primary mt-3">Đặt lịch khám ngay</a>
+            </div>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                // Xác định màu sắc viền dựa trên trạng thái
+                string statusClass = "status-pending";
+                if (item.TrangThai == 1) { statusClass = "status-confirmed"; }
+                else if (item.TrangThai == 2) { statusClass = "status-completed"; }
+
+                <div class="appointment-card @statusClass">
+                    <div class="row align-items-center">
+
+                        <div class="col-md-2 text-center mb-3 mb-md-0">
+                            <img class="doctor-avatar" src="~/images/images/avatar.jpg"
+                                 onerror="this.src='https://cdn-icons-png.flaticon.com/512/3774/3774299.png'" alt="Avatar" />
+                        </div>
+
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="info-label">Bác sĩ tư vấn</div>
+                                    <div class="info-value text-primary">
+                                        @(item.QuanTri != null ? item.QuanTri.HoTen : "Chưa phân công")
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="info-label">Thời gian hẹn</div>
+                                    <div class="info-value">
+                                        <i class="far fa-clock text-warning me-1"></i>
+                                        @(item.BatDau.HasValue ? item.BatDau.Value.ToString("dd/MM/yyyy HH:mm") : "Chưa xác định")
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-2">
+                                <div class="info-label">Nội dung tư vấn</div>
+                                <div class="problem-text">
+                                    <i class="fas fa-notes-medical me-2"></i> @item.ChuDe
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 text-center border-start ps-md-4">
+
+                            @if (item.TrangThai == 0)
+                            {
+                                <span class="badge-status badge-warning"><i class="fas fa-hourglass-half"></i> Đang chờ xác nhận</span>
+                                <div class="d-grid gap-2">
+                                    <a href="@Url.Action("Edit", new { id = item.IDLichKham })" class="btn btn-outline-primary btn-action btn-sm">
+                                        <i class="fas fa-edit"></i> Chỉnh sửa
+                                    </a>
+                                    <a href="@Url.Action("Delete", new { id = item.IDLichKham })" class="btn btn-outline-danger btn-action btn-sm">
+                                        <i class="fas fa-trash"></i> Hủy lịch
+                                    </a>
+                                </div>
+                            }
+                            else if (item.TrangThai == 1)
+                            {
+                                <span class="badge-status badge-primary"><i class="fas fa-check-circle"></i> Đã xác nhận</span>
+
+                                if (item.BatDau.HasValue)
+                                {
+                                    DateTime now = DateTime.Now;
+                                    DateTime bd = item.BatDau.Value;
+
+                                    if (now < bd)
+                                    {
+                                        TimeSpan tg = bd - now;
+                                        <div class="alert alert-info py-2" style="font-size: 0.9rem;">
+                                            Còn: <b>@tg.Days ngày @tg.Hours giờ @tg.Minutes phút</b>
+                                        </div>
+                                        <button class="btn btn-secondary btn-action btn-sm" disabled>
+                                            <i class="fas fa-lock"></i> Chưa đến giờ
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <a href="@item.DiaChi" target="_blank" class="btn btn-success btn-action shadow">
+                                            <i class="fas fa-video me-2"></i> VÀO PHÒNG KHÁM
+                                        </a>
+                                    }
+                                }
+                            }
+                            else if (item.TrangThai == 2)
+                            {
+                                <span class="badge-status badge-success"><i class="fas fa-check-double"></i> Đã hoàn thành</span>
+                                <div class="text-start mt-2 p-2 bg-light rounded small text-muted">
+                                    <i class="fas fa-comment-medical text-success"></i> <b>Kết quả:</b>
+                                    @(string.IsNullOrEmpty(item.KetQuaKham) ? "Không có ghi chú" : item.KetQuaKham)
+                                </div>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Lỗi trạng thái</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="pagination-container">
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+                <div class="d-flex justify-content-center mt-2">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+        }
+    }
 </div>
-
-
-
-

@@ -1,15 +1,168 @@
 ﻿@using WebAppYte.Models
 @model TrungTamGanNhat
+
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết cơ sở y tế";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <center>
-        <h2>Chi tiết bệnh viện </h2>
 
-        <div>
-            @Html.Raw(Model.Mota)
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary: #0d6efd;
+        --bg-light: #f4f6f9;
+        --text-dark: #2c3e50;
+    }
+
+    body {
+        background-color: var(--bg-light);
+        font-family: 'Inter', sans-serif;
+    }
+
+    .content-wrapper {
+        min-height: 85vh;
+        padding: 40px 0;
+    }
+
+    /* Detail Card */
+    .detail-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        border: none;
+        overflow: hidden;
+    }
+
+    .card-header-custom {
+        background-color: white;
+        padding: 30px 30px 10px 30px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .hospital-name {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+
+    .breadcrumb-custom {
+        font-size: 14px;
+        color: #6c757d;
+        margin-bottom: 0;
+    }
+
+    .card-body-custom {
+        padding: 30px;
+        color: #333;
+        line-height: 1.8;
+        font-size: 16px;
+    }
+
+    /* Xử lý nội dung HTML (Mô tả) */
+    .detail-content {
+        text-align: justify;
+    }
+
+        /* Quan trọng: Đảm bảo hình ảnh trong bài viết không bị tràn màn hình */
+        .detail-content img {
+            max-width: 100% !important;
+            height: auto !important;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .detail-content h2, .detail-content h3 {
+            color: var(--text-dark);
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+    /* Footer Action */
+    .card-footer-custom {
+        padding: 20px 30px;
+        background-color: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .btn-back {
+        background-color: white;
+        border: 1px solid #ced4da;
+        color: #495057;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.2s;
+        display: inline-flex;
+        align-items: center;
+    }
+
+        .btn-back:hover {
+            background-color: #e2e6ea;
+            color: #212529;
+        }
+</style>
+
+<div class="container content-wrapper">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+            <div class="detail-card">
+                <div class="card-header-custom">
+                    <p class="breadcrumb-custom">
+                        <a href="@Url.Action("Index", "Trungtamyte")" style="text-decoration: none; color: #6c757d;">
+                            <i class="fas fa-home"></i> Tìm kiếm
+                        </a>
+                        / Chi tiết
+                    </p>
+                    <h1 class="hospital-name">
+                        @if (Model.TenTrungTam != null)
+                        {
+                            @Model.TenTrungTam
+                        }
+                        else
+                        {
+                            <span>Thông tin chi tiết</span>
+                        }
+                    </h1>
+
+                    @if (Model.Huyen != null)
+                    {
+                        <div class="text-muted mb-2">
+                            <i class="fas fa-map-marker-alt text-danger me-1"></i> @Model.Huyen.TenHuyen
+                        </div>
+                    }
+                </div>
+
+                <div class="card-body-custom">
+                    <div class="detail-content">
+                        @if (!string.IsNullOrEmpty(Model.Mota))
+                        {
+                            @Html.Raw(Model.Mota)
+                        }
+                        else
+                        {
+                            <p class="text-muted text-center py-5">
+                                <i>Đang cập nhật thông tin chi tiết cho cơ sở y tế này.</i>
+                            </p>
+                        }
+                    </div>
+                </div>
+
+                <div class="card-footer-custom">
+                    <a href="@Url.Action("Index", "Trungtamyte")" class="btn-back">
+                        <i class="fas fa-arrow-left me-2"></i> Quay lại danh sách
+                    </a>
+                </div>
+            </div>
+
         </div>
-    </center>
-
-
+    </div>
+</div>

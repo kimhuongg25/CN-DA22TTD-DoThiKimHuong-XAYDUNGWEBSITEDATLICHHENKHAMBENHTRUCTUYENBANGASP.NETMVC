@@ -212,11 +212,11 @@
                 <div class="qa-header">
                     <span>
                         <i class="fas fa-user-circle me-1 text-secondary"></i>
-                        <b>@item.NguoiDung.HoTen</b>
+                        <b>@(item.NguoiDung?.HoTen ?? "Ẩn danh")</b>
                     </span>
                     <span>
                         <i class="far fa-clock me-1"></i>
-                        @item.NgayGui.Value.ToString("dd/MM/yyyy HH:mm")
+                        @(item.NgayGui?.ToString("dd/MM/yyyy HH:mm"))
                     </span>
                 </div>
 

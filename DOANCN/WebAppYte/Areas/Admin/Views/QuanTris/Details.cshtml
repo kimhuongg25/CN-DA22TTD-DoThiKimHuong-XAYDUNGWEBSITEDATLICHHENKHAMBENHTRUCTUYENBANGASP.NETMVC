@@ -1,83 +1,315 @@
 ﻿@model WebAppYte.Models.QuanTri
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Hồ sơ Bác sĩ";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
 }
 
-<h2>Details</h2>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-<div>
-    <h4>QuanTri</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Khoa.TenKhoa)
-        </dt>
+<style>
+    :root {
+        --primary: #4e73df;
+        --secondary: #858796;
+        --bg-light: #f8f9fc;
+        --border-color: #e3e6f0;
+        --text-dark: #2c3e50;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Khoa.TenKhoa)
-        </dd>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-light);
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TaiKhoan)
-        </dt>
+    .detail-container {
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.TaiKhoan)
-        </dd>
+    /* Card Styling */
+    .profile-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        border: none;
+        width: 100%;
+        max-width: 900px;
+        overflow: hidden;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MatKhau)
-        </dt>
+    .card-header-custom {
+        background-color: white;
+        padding: 20px 30px;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.MatKhau)
-        </dd>
+    .card-title {
+        font-weight: 700;
+        color: var(--primary);
+        margin: 0;
+        font-size: 18px;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.VaiTro)
-        </dt>
+    .card-body-custom {
+        padding: 0;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.VaiTro)
-        </dd>
+    /* Sidebar (Left Column) */
+    .profile-sidebar {
+        background-color: #f8f9fc;
+        padding: 40px 20px;
+        text-align: center;
+        border-right: 1px solid var(--border-color);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ThongTinBacSi)
-        </dt>
+    .avatar-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.ThongTinBacSi)
-        </dd>
+    .profile-name {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin-bottom: 5px;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TrinhDo)
-        </dt>
+    .profile-role {
+        color: #858796;
+        font-weight: 500;
+        margin-bottom: 20px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.TrinhDo)
-        </dd>
+    .badge-pill {
+        padding: 6px 15px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-block;
+        margin: 5px;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HoTen)
-        </dt>
+    .badge-degree {
+        background-color: #e0f2fe;
+        color: #0284c7;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.HoTen)
-        </dd>
+    .badge-dept {
+        background-color: #dcfce7;
+        color: #166534;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AnhBia)
-        </dt>
+    /* Content (Right Column) */
+    .profile-content {
+        padding: 40px;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.AnhBia)
-        </dd>
+    .info-section-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #b7b9cc;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #eaecf4;
+        padding-bottom: 5px;
+    }
 
-    </dl>
+    .info-row {
+        margin-bottom: 15px;
+        display: flex;
+    }
+
+    .info-label {
+        width: 140px;
+        font-weight: 600;
+        color: #5a5c69;
+        font-size: 14px;
+    }
+
+    .info-value {
+        flex: 1;
+        color: #2c3e50;
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .bio-box {
+        background-color: #f8f9fc;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        font-style: italic;
+        color: #555;
+        line-height: 1.6;
+        margin-top: 10px;
+    }
+
+    /* Buttons */
+    .btn-edit {
+        background-color: var(--primary);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.2s;
+        margin-top: 20px;
+        display: inline-block;
+        box-shadow: 0 4px 6px rgba(78, 115, 223, 0.3);
+    }
+
+        .btn-edit:hover {
+            background-color: #2e59d9;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    .btn-back {
+        color: #858796;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: 0.2s;
+    }
+
+        .btn-back:hover {
+            color: var(--text-dark);
+        }
+
+    /* Helper Grid */
+    .row-custom {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col-left {
+        width: 35%;
+    }
+
+    .col-right {
+        width: 65%;
+    }
+
+    @@media (max-width: 768px) {
+        .col-left, .col-right {
+            width: 100%;
+        }
+
+        .profile-sidebar {
+            border-right: none;
+            border-bottom: 1px solid var(--border-color);
+        }
+    }
+</style>
+
+<div class="detail-container">
+    <div class="profile-card">
+        <div class="card-header-custom">
+            <h3 class="card-title"><i class="fas fa-id-card me-2"></i> Hồ sơ chi tiết</h3>
+            <a href="@Url.Action("Index")" class="btn-back">
+                <i class="fas fa-arrow-left me-1"></i> Quay lại danh sách
+            </a>
+        </div>
+
+        <div class="card-body-custom">
+            <div class="row-custom">
+
+                <div class="col-left">
+                    <div class="profile-sidebar">
+                        <img src="~/images/images/@Model.AnhBia"
+                             alt="Avatar"
+                             class="avatar-img"
+                             onerror="this.src='https://cdn-icons-png.flaticon.com/512/3774/3774299.png'" />
+
+                        <div class="profile-name">@Html.DisplayFor(model => model.HoTen)</div>
+                        <div class="profile-role">@Html.DisplayFor(model => model.VaiTro)</div>
+
+                        <div class="mt-2">
+                            <span class="badge-pill badge-degree">
+                                <i class="fas fa-graduation-cap"></i> @Html.DisplayFor(model => model.TrinhDo)
+                            </span>
+                            <span class="badge-pill badge-dept">
+                                <i class="fas fa-hospital-alt"></i> @Html.DisplayFor(model => model.Khoa.TenKhoa)
+                            </span>
+                        </div>
+
+                        <a href="@Url.Action("Edit", new { id = Model.IDQuanTri })" class="btn-edit">
+                            <i class="fas fa-edit me-2"></i> Chỉnh sửa hồ sơ
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-right">
+                    <div class="profile-content">
+
+                        <div class="info-section-title">
+                            <i class="fas fa-user-shield me-2"></i> Thông tin tài khoản
+                        </div>
+
+                        <div class="info-row">
+                            <div class="info-label">Tên đăng nhập:</div>
+                            <div class="info-value">@Html.DisplayFor(model => model.TaiKhoan)</div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="info-label">Mật khẩu:</div>
+                            <div class="info-value">
+                                <span class="text-muted" style="letter-spacing: 2px;">••••••••</span>
+                                <span style="font-size: 12px; color: #858796;">(Đã ẩn)</span>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="info-section-title">
+                            <i class="fas fa-stethoscope me-2"></i> Thông tin chuyên môn
+                        </div>
+
+                        <div class="info-row">
+                            <div class="info-label">Chuyên khoa:</div>
+                            <div class="info-value">@Html.DisplayFor(model => model.Khoa.TenKhoa)</div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="info-label">Học vị:</div>
+                            <div class="info-value">@Html.DisplayFor(model => model.TrinhDo)</div>
+                        </div>
+
+                        <div class="mt-3">
+                            <div class="info-label mb-2">Giới thiệu / Tiểu sử:</div>
+                            <div class="bio-box">
+                                @if (!string.IsNullOrEmpty(Model.ThongTinBacSi))
+                                {
+                                    @Html.Raw(Model.ThongTinBacSi.Replace("\n", "<br>"))
+                                }
+                                else
+                                {
+                                    <span>Chưa cập nhật thông tin giới thiệu.</span>
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDQuanTri }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

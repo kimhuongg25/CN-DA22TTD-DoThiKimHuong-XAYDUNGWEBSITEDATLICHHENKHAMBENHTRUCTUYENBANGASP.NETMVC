@@ -8,114 +8,150 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppYte.Models;
 using PagedList;
+
 namespace WebAppYte.Controllers
 {
     public class LichkhamController : Controller
     {
         private modelWeb db = new modelWeb();
 
-        // GET: Lichkham
-        public ActionResult Index(int? id , int? page)
+        // === 1. DANH SÁCH TẤT CẢ ===
+        public ActionResult Index(int? page)
         {
-            var lichKhams = db.LichKhams.Include(l => l.NguoiDung).Include(l => l.QuanTri).
-                Where(h => h.IDNguoiDung == id).OrderByDescending(x=>x.BatDau).ThenBy(x=>x.IDLichKham);
+            // Kiểm tra đăng nhập
+            var u = Session["user"] as WebAppYte.Models.NguoiDung;
+            if (u == null) return RedirectToAction("DangNhap", "NguoiDung");
+
+            // Lấy ID từ Session thay vì từ URL để bảo mật
+            int id = u.IDNguoiDung;
+
+            var lichKhams = db.LichKhams.Include(l => l.NguoiDung).Include(l => l.QuanTri)
+                .Where(h => h.IDNguoiDung == id)
+                .OrderByDescending(x => x.BatDau).ThenBy(x => x.IDLichKham);
+
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-            ViewBag.id = id;
             return View(lichKhams.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult Dangxuly(int? id, int? page)
+        // === 2. ĐANG XỬ LÝ (Trạng thái 0) ===
+        public ActionResult Dangxuly(int? page)
         {
-            var lichKhams = db.LichKhams.Include(l => l.NguoiDung).Include(l => l.QuanTri).
-                Where(h => h.IDNguoiDung == id && h.TrangThai==0).OrderByDescending(x => x.BatDau).ThenBy(x => x.IDLichKham);
+            var u = Session["user"] as WebAppYte.Models.NguoiDung;
+            if (u == null) return RedirectToAction("DangNhap", "NguoiDung");
+
+            int id = u.IDNguoiDung;
+
+            var lichKhams = db.LichKhams.Include(l => l.NguoiDung).Include(l => l.QuanTri)
+                .Where(h => h.IDNguoiDung == id && h.TrangThai == 0)
+                .OrderByDescending(x => x.BatDau).ThenBy(x => x.IDLichKham);
+
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-            ViewBag.id = id;
             return View(lichKhams.ToPagedList(pageNumber, pageSize));
         }
-        public ActionResult Daxacnhan(int? id, int? page)
+
+        // === 3. ĐÃ XÁC NHẬN (Trạng thái 1) ===
+        public ActionResult Daxacnhan(int? page)
         {
-            var lichKhams = db.LichKhams.Include(l => l.NguoiDung).Include(l => l.QuanTri).
-                Where(h => h.IDNguoiDung == id && h.TrangThai == 1).OrderByDescending(x => x.BatDau).ThenBy(x => x.IDLichKham);
+            var u = Session["user"] as WebAppYte.Models.NguoiDung;
+            if (u == null) return RedirectToAction("DangNhap", "NguoiDung");
+
+            int id = u.IDNguoiDung;
+
+            var lichKhams = db.LichKhams.Include(l => l.NguoiDung).Include(l => l.QuanTri)
+                .Where(h => h.IDNguoiDung == id && h.TrangThai == 1)
+                .OrderByDescending(x => x.BatDau).ThenBy(x => x.IDLichKham);
+
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-            ViewBag.id = id;
             return View(lichKhams.ToPagedList(pageNumber, pageSize));
         }
-        public ActionResult Datuvanxong(int? id, int? page)
+
+        // === 4. ĐÃ HOÀN THÀNH (Trạng thái 2) ===
+        public ActionResult Datuvanxong(int? page)
         {
-            var lichKhams = db.LichKhams.Include(l => l.NguoiDung).Include(l => l.QuanTri).
-                Where(h => h.IDNguoiDung == id && h.TrangThai == 2).OrderByDescending(x => x.BatDau).ThenBy(x => x.IDLichKham);
+            var u = Session["user"] as WebAppYte.Models.NguoiDung;
+            if (u == null) return RedirectToAction("DangNhap", "NguoiDung");
+
+            int id = u.IDNguoiDung;
+
+            var lichKhams = db.LichKhams.Include(l => l.NguoiDung).Include(l => l.QuanTri)
+                .Where(h => h.IDNguoiDung == id && h.TrangThai == 2)
+                .OrderByDescending(x => x.BatDau).ThenBy(x => x.IDLichKham);
+
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-            ViewBag.id = id;
             return View(lichKhams.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Lichkham/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             LichKham lichKham = db.LichKhams.Find(id);
-            if (lichKham == null)
-            {
-                return HttpNotFound();
-            }
+            if (lichKham == null) return HttpNotFound();
             return View(lichKham);
         }
 
         // GET: Lichkham/Create
         public ActionResult Create()
         {
-            ViewBag.IDNguoiDung = new SelectList(db.NguoiDungs, "IDNguoiDung", "HoTen");
-            ViewBag.IDQuanTri = new SelectList(db.QuanTris.Where(n=>n.VaiTro==2), "IDQuanTri", "HoTen");
+            // Kiểm tra đăng nhập trước khi cho đặt lịch
+            var u = Session["user"] as WebAppYte.Models.NguoiDung;
+            if (u == null) return RedirectToAction("DangNhap", "NguoiDung");
+
+            // Chỉ cần truyền danh sách Bác sĩ (VaiTro == 2)
+            // Không cần truyền danh sách User vì người đặt chính là người đang login
+            ViewBag.IDQuanTri = new SelectList(db.QuanTris.Where(n => n.VaiTro == 2), "IDQuanTri", "HoTen");
+
             return View();
         }
 
         // POST: Lichkham/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDLichKham,ChuDe,MoTa,BatDau,KetThuc,TrangThai,DiaChi,KetQuaKham,IDNguoiDung,IDQuanTri")] LichKham lichKham)
+        public ActionResult Create([Bind(Include = "IDLichKham,ChuDe,MoTa,BatDau,KetThuc,TrangThai,DiaChi,KetQuaKham,IDQuanTri")] LichKham lichKham)
         {
+            var u = Session["user"] as WebAppYte.Models.NguoiDung;
+            if (u == null) return RedirectToAction("DangNhap", "NguoiDung");
+
             if (ModelState.IsValid)
             {
-                lichKham.TrangThai = 0;
+                // Gán tự động các giá trị hệ thống
+                lichKham.IDNguoiDung = u.IDNguoiDung; // Người đặt là người đang login
+                lichKham.TrangThai = 0; // Mới tạo thì auto là Chờ xử lý
+
                 db.LichKhams.Add(lichKham);
                 db.SaveChanges();
-                return RedirectToAction("Index","LichKham" ,new { id = lichKham.IDNguoiDung });
+                // Chuyển hướng về trang Đang xử lý
+                return RedirectToAction("Dangxuly");
             }
 
-            ViewBag.IDNguoiDung = new SelectList(db.NguoiDungs, "IDNguoiDung", "HoTen", lichKham.IDNguoiDung);
-            ViewBag.IDQuanTri = new SelectList(db.QuanTris, "IDQuanTri", "HoTen", lichKham.IDQuanTri);
+            ViewBag.IDQuanTri = new SelectList(db.QuanTris.Where(n => n.VaiTro == 2), "IDQuanTri", "HoTen", lichKham.IDQuanTri);
             return View(lichKham);
         }
 
         // GET: Lichkham/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             LichKham lichKham = db.LichKhams.Find(id);
-            if (lichKham == null)
+            if (lichKham == null) return HttpNotFound();
+
+            // Check quyền: Chỉ chủ sở hữu mới được sửa (hoặc admin - tùy bạn)
+            var u = Session["user"] as WebAppYte.Models.NguoiDung;
+            if (u == null || lichKham.IDNguoiDung != u.IDNguoiDung)
             {
-                return HttpNotFound();
+                // Nếu không phải chính chủ, không cho sửa
+                return RedirectToAction("Index");
             }
-            ViewBag.IDNguoiDung = new SelectList(db.NguoiDungs, "IDNguoiDung", "HoTen", lichKham.IDNguoiDung);
-            ViewBag.IDQuanTri = new SelectList(db.QuanTris, "IDQuanTri", "TaiKhoan", lichKham.IDQuanTri);
+
+            ViewBag.IDQuanTri = new SelectList(db.QuanTris.Where(n => n.VaiTro == 2), "IDQuanTri", "HoTen", lichKham.IDQuanTri);
             return View(lichKham);
         }
 
         // POST: Lichkham/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IDLichKham,ChuDe,MoTa,BatDau,KetThuc,TrangThai,DiaChi,KetQuaKham,IDNguoiDung,IDQuanTri")] LichKham lichKham)
@@ -124,25 +160,18 @@ namespace WebAppYte.Controllers
             {
                 db.Entry(lichKham).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Dangxuly"); // Sửa xong quay về danh sách đang xử lý
             }
-            ViewBag.IDNguoiDung = new SelectList(db.NguoiDungs, "IDNguoiDung", "HoTen", lichKham.IDNguoiDung);
-            ViewBag.IDQuanTri = new SelectList(db.QuanTris, "IDQuanTri", "TaiKhoan", lichKham.IDQuanTri);
+            ViewBag.IDQuanTri = new SelectList(db.QuanTris.Where(n => n.VaiTro == 2), "IDQuanTri", "HoTen", lichKham.IDQuanTri);
             return View(lichKham);
         }
 
         // GET: Lichkham/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             LichKham lichKham = db.LichKhams.Find(id);
-            if (lichKham == null)
-            {
-                return HttpNotFound();
-            }
+            if (lichKham == null) return HttpNotFound();
             return View(lichKham);
         }
 
@@ -159,9 +188,7 @@ namespace WebAppYte.Controllers
 
         public JsonResult Lichdangluoi()
         {
-            //db.Configuration.ProxyCreationEnabled = false;
             List<LichKham> l = db.LichKhams.ToList();
-            // events = db.LichKhams.ToList();
             var events = l.Select(ll => new
             {
                 id = ll.IDLichKham,
@@ -169,19 +196,12 @@ namespace WebAppYte.Controllers
                 start = ll.BatDau,
                 end = ll.KetThuc,
             });
-            Console.WriteLine(events);
             return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
         public ActionResult lichhen()
         {
             return View();
-
-        }
-        private static DateTime ConvertFromUnixTimestamp(double timestamp)
-        {
-            var origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            return origin.AddSeconds(timestamp);
         }
 
         protected override void Dispose(bool disposing)

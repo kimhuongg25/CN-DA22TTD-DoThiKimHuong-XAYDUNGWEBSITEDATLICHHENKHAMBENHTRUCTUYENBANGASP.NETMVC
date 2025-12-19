@@ -1,92 +1,346 @@
 ﻿@model WebAppYte.Models.QuanTri
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Thêm mới Bác sĩ";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
 }
 
-<h2>Create</h2>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>QuanTri</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.TaiKhoan, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<style>
+    :root {
+        --primary: #4e73df;
+        --success: #1cc88a;
+        --bg-light: #f8f9fc;
+        --border-color: #e3e6f0;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MatKhau, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fc;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.VaiTro, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.VaiTro, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.VaiTro, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    /* Card Styling */
+    .form-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
+        margin: 20px;
+        overflow: hidden;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ThongTinBacSi, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ThongTinBacSi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ThongTinBacSi, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    .card-header {
+        background-color: white;
+        padding: 20px 30px;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TrinhDo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TrinhDo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TrinhDo, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    .card-title {
+        margin: 0;
+        font-weight: 700;
+        color: var(--success); /* Màu xanh lá cho Create */
+        font-size: 18px;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IDKhoa, "IDKhoa", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IDKhoa", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IDKhoa, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    .card-body {
+        padding: 30px;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    /* Form Controls */
+    .form-label {
+        font-weight: 600;
+        color: #5a5c69;
+        margin-bottom: 8px;
+        display: block;
+        font-size: 14px;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.AnhBia, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AnhBia, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AnhBia, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    .form-control {
+        border-radius: 6px;
+        border: 1px solid #d1d3e2;
+        padding: 10px 15px;
+        font-size: 14px;
+        height: auto;
+        width: 100%;
+        transition: 0.2s;
+    }
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+        .form-control:focus {
+            border-color: var(--success);
+            box-shadow: 0 0 0 3px rgba(28, 200, 138, 0.1);
+            outline: none;
+        }
+
+    textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    /* Upload Zone Styling */
+    .upload-container {
+        border: 2px dashed #d1d3e2;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: #f8f9fc;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .upload-container:hover, .upload-container.dragover {
+            border-color: var(--success);
+            background-color: #f0fdf4;
+        }
+
+    .preview-image {
+        max-width: 100%;
+        max-height: 250px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        object-fit: cover;
+        margin-bottom: 15px;
+        display: none; /* Ẩn mặc định */
+    }
+
+    .upload-icon {
+        font-size: 40px;
+        color: #858796;
+        margin-bottom: 10px;
+    }
+
+    .upload-text {
+        color: #5a5c69;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    /* Buttons */
+    .btn-create {
+        background-color: var(--success);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 6px;
+        border: none;
+        font-weight: 600;
+        transition: 0.2s;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+    }
+
+        .btn-create:hover {
+            background-color: #17a673;
+            transform: translateY(-1px);
+        }
+
+    .btn-back {
+        color: #858796;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        margin-right: 20px;
+        transition: 0.2s;
+    }
+
+        .btn-back:hover {
+            color: #5a5c69;
+        }
+
+    /* Layout Helpers */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+    }
+
+    .col-md-8 {
+        width: 66.66%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .col-md-4 {
+        width: 33.33%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .col-md-6 {
+        width: 50%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .mb-3 {
+        margin-bottom: 20px;
+    }
+
+    @@media (max-width: 768px) {
+        .col-md-8, .col-md-4, .col-md-6 {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="form-card">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-user-plus me-2"></i> Thêm mới Bác sĩ
+        </h3>
+        <a href="@Url.Action("Index")" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Quay lại danh sách
+        </a>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div class="card-body">
+        @using (Html.BeginForm("Create", "QuanTris", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h5 class="text-success mb-3" style="border-bottom: 2px solid #e3e6f0; padding-bottom: 10px;">
+                        Thông tin tài khoản & Cá nhân
+                    </h5>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Họ và Tên</label>
+                            @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập họ tên bác sĩ" } })
+                            @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger small" })
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Tài khoản đăng nhập</label>
+                            @Html.EditorFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control", placeholder = "Tên đăng nhập" } })
+                            @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger small" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Mật khẩu</label>
+                            @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control", type = "password", placeholder = "Nhập mật khẩu" } })
+                            @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger small" })
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Vai trò</label>
+                            @Html.EditorFor(model => model.VaiTro, new { htmlAttributes = new { @class = "form-control", placeholder = "VD: Bác sĩ, Quản lý..." } })
+                            @Html.ValidationMessageFor(model => model.VaiTro, "", new { @class = "text-danger small" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Chuyên khoa</label>
+                            @Html.DropDownList("IDKhoa", null, "--- Chọn Khoa ---", htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IDKhoa, "", new { @class = "text-danger small" })
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Trình độ / Học vị</label>
+                            @Html.EditorFor(model => model.TrinhDo, new { htmlAttributes = new { @class = "form-control", placeholder = "VD: Thạc sĩ, CK1..." } })
+                            @Html.ValidationMessageFor(model => model.TrinhDo, "", new { @class = "text-danger small" })
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Giới thiệu / Thông tin chi tiết</label>
+                        @Html.TextAreaFor(model => model.ThongTinBacSi, new { @class = "form-control", rows = 5, placeholder = "Nhập tiểu sử, kinh nghiệm làm việc..." })
+                        @Html.ValidationMessageFor(model => model.ThongTinBacSi, "", new { @class = "text-danger small" })
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="text-success mb-3" style="border-bottom: 2px solid #e3e6f0; padding-bottom: 10px;">
+                        Ảnh đại diện
+                    </h5>
+
+                    <div id="drop-area" class="upload-container">
+                        <input type="file" name="uploadAnhBia" id="fileInput" accept="image/*" style="display:none;" />
+
+                        <img id="previewImg" class="preview-image" />
+
+                        <div id="upload-placeholder">
+                            <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                            <div class="upload-text">Kéo thả ảnh vào đây</div>
+                            <div class="upload-text" style="font-size: 12px; color: #858796;">hoặc nhấn để chọn file</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #e3e6f0;">
+
+            <div class="text-right" style="text-align: right;">
+                <button type="submit" class="btn-create">
+                    <i class="fas fa-check me-2"></i> Tạo mới
+                </button>
+            </div>
+        }
+    </div>
 </div>
+
+<script>
+    const dropArea = document.getElementById("drop-area");
+    const fileInput = document.getElementById("fileInput");
+    const previewImg = document.getElementById("previewImg");
+    const placeholder = document.getElementById("upload-placeholder");
+
+    // Click để mở dialog chọn file
+    dropArea.addEventListener("click", () => {
+        fileInput.click();
+    });
+
+    // Hiệu ứng kéo thả
+    dropArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropArea.classList.add("dragover");
+    });
+
+    dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("dragover");
+    });
+
+    dropArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropArea.classList.remove("dragover");
+
+        if (e.dataTransfer.files.length > 0) {
+            fileInput.files = e.dataTransfer.files;
+            showPreview(e.dataTransfer.files[0]);
+        }
+    });
+
+    // Sự kiện khi chọn file
+    fileInput.addEventListener("change", function () {
+        if (this.files.length > 0) {
+            showPreview(this.files[0]);
+        }
+    });
+
+    // Hàm hiển thị ảnh xem trước
+    function showPreview(file) {
+        if (!file.type.startsWith("image/")) {
+            alert("Vui lòng chỉ chọn file hình ảnh!");
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            previewImg.src = e.target.result;
+            previewImg.style.display = "block"; // Hiện ảnh
+            placeholder.style.display = "none"; // Ẩn icon upload
+        };
+        reader.readAsDataURL(file);
+    }
+</script>

@@ -1,71 +1,246 @@
 ﻿@model IEnumerable<WebAppYte.Models.HoiDap>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Quản lý Hỏi Đáp";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
 }
 
-<h2>Index</h2>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NguoiDung.HoTen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuanTri.TaiKhoan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CauHoi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TraLoi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayGui)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GhiChu)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TrangThai)
-        </th>
-        <th></th>
-    </tr>
+<style>
+    :root {
+        --primary: #4e73df;
+        --success: #1cc88a;
+        --warning: #f6c23e;
+        --danger: #e74a3b;
+        --dark: #5a5c69;
+        --light: #f8f9fc;
+    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NguoiDung.HoTen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuanTri.TaiKhoan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CauHoi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TraLoi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayGui)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GhiChu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TrangThai)
-        </td>
-        <td>
-            @Html.ActionLink("Create New", "Create", new { id = item.IDNguoiDung })
-            @Html.ActionLink("Edit", "Edit", new { id = item.IDHoidap }) |
-            @Html.ActionLink("Details", "Details", new { id = item.IDHoidap }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IDHoidap })
-        </td>
-    </tr>
-}
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fc;
+    }
 
-</table>
+    /* Page Header */
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    .page-title {
+        font-weight: 700;
+        color: var(--dark);
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .btn-add {
+        background-color: var(--primary);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 3px 10px rgba(78, 115, 223, 0.3);
+        transition: 0.2s;
+    }
+
+        .btn-add:hover {
+            background-color: #2e59d9;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    /* Table Card */
+    .table-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        overflow: hidden;
+        border: 1px solid #e3e6f0;
+    }
+
+    .table-custom {
+        width: 100%;
+        margin-bottom: 0;
+        border-collapse: collapse;
+    }
+
+        .table-custom th {
+            background-color: #f8f9fc;
+            color: #4e73df;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            padding: 15px;
+            border-bottom: 2px solid #e3e6f0;
+            vertical-align: middle;
+        }
+
+        .table-custom td {
+            padding: 15px;
+            vertical-align: middle;
+            color: #5a5c69;
+            border-bottom: 1px solid #e3e6f0;
+            font-size: 14px;
+        }
+
+    /* Content Truncate */
+    .text-limit {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+    }
+
+    /* Status Badges */
+    .badge-status {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .badge-answered {
+        background-color: #d1fae5;
+        color: #065f46;
+    }
+    /* Green */
+    .badge-pending {
+        background-color: #fef3c7;
+        color: #92400e;
+    }
+    /* Yellow */
+
+    /* Action Buttons */
+    .action-btn {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        text-decoration: none;
+        margin: 0 2px;
+        font-size: 14px;
+        transition: 0.2s;
+    }
+
+    .btn-edit {
+        background-color: #e0e7ff;
+        color: #4338ca;
+    }
+
+    .btn-detail {
+        background-color: #e0f2fe;
+        color: #0369a1;
+    }
+
+    .btn-delete {
+        background-color: #fee2e2;
+        color: #b91c1c;
+    }
+
+    .action-btn:hover {
+        opacity: 0.8;
+    }
+</style>
+
+<div class="container-fluid" style="padding: 30px;">
+
+    <div class="page-header">
+        <h2 class="page-title"><i class="fas fa-comments me-2"></i> Quản lý Hỏi Đáp</h2>
+        <a href="@Url.Action("Create")" class="btn-add">
+            <i class="fas fa-plus me-2"></i> Thêm câu hỏi mới
+        </a>
+    </div>
+
+    <div class="table-card">
+        <div class="table-responsive">
+            <table class="table table-custom table-hover">
+                <thead>
+                    <tr>
+                        <th width="15%">Người gửi</th>
+                        <th width="20%">Câu hỏi</th>
+                        <th width="20%">Trả lời</th>
+                        <th width="10%">Ngày gửi</th>
+                        <th width="10%">Người duyệt</th>
+                        <th width="10%" class="text-center">Trạng thái</th>
+                        <th width="15%" class="text-center">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <strong>@Html.DisplayFor(modelItem => item.NguoiDung.HoTen)</strong>
+                            </td>
+                            <td>
+                                <span class="text-limit" title="@item.CauHoi">
+                                    @Html.DisplayFor(modelItem => item.CauHoi)
+                                </span>
+                            </td>
+                            <td>
+                                <span class="text-limit" title="@item.TraLoi">
+                                    @(string.IsNullOrEmpty(item.TraLoi) ? "---" : item.TraLoi)
+                                </span>
+                            </td>
+                            <td>
+                                @(item.NgayGui.HasValue ? item.NgayGui.Value.ToString("dd/MM/yyyy") : "")
+                            </td>
+                            <td>
+                                @if (item.QuanTri != null)
+                                {
+                                    <span class="text-primary"><i class="fas fa-user-shield"></i> @item.QuanTri.TaiKhoan</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted small">---</span>
+                                }
+                            </td>
+                            <td class="text-center">
+                                @{
+                                    // Giả sử logic: Có câu trả lời hoặc TrangThai=1 là đã xong
+                                    bool isAnswered = !string.IsNullOrEmpty(item.TraLoi) || item.TrangThai == 1;
+                                }
+                                @if (isAnswered)
+                                {
+                                    <span class="badge-status badge-answered">Đã trả lời</span>
+                                }
+                                else
+                                {
+                                    <span class="badge-status badge-pending">Chờ xử lý</span>
+                                }
+                            </td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Edit", new { id = item.IDHoidap })" class="action-btn btn-edit" title="Trả lời/Sửa">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Details", new { id = item.IDHoidap })" class="action-btn btn-detail" title="Chi tiết">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="@Url.Action("Delete", new { id = item.IDHoidap })" class="action-btn btn-delete" title="Xóa">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (Model.Count() == 0)
+        {
+            <div class="text-center p-4 text-muted">
+                <i class="fas fa-inbox fa-3x mb-3"></i>
+                <p>Chưa có dữ liệu hỏi đáp nào.</p>
+            </div>
+        }
+    </div>
+</div>

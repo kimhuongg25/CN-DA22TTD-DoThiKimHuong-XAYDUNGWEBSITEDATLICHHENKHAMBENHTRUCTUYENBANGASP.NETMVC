@@ -1,97 +1,217 @@
 ﻿@model WebAppYte.Models.LichKham
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Hủy lịch hẹn";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>LichKham</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiDung.HoTen)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiDung.HoTen)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.QuanTri.TaiKhoan)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.QuanTri.TaiKhoan)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ChuDe)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ChuDe)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BatDau)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BatDau)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.KetThuc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.KetThuc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TrangThai)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TrangThai)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.KetQuaKham)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.KetQuaKham)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+<style>
+    :root {
+        --danger: #dc3545;
+        --danger-dark: #b02a37;
+        --text-dark: #343a40;
+        --bg-light: #f4f6f9;
     }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-light);
+    }
+
+    .content-wrapper {
+        min-height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
+    /* Delete Card */
+    .delete-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 550px;
+        overflow: hidden;
+        text-align: center;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    /* Header */
+    .card-header-danger {
+        background: linear-gradient(135deg, #ff6b6b, #ee5253); /* Màu đỏ cảnh báo */
+        padding: 40px 30px;
+        color: white;
+    }
+
+    .warning-icon {
+        font-size: 60px;
+        margin-bottom: 20px;
+        opacity: 0.9;
+        animation: pulse 2s infinite;
+    }
+
+    .card-title {
+        font-weight: 800;
+        font-size: 24px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .card-subtitle {
+        font-size: 15px;
+        opacity: 0.9;
+        font-weight: 500;
+    }
+
+    /* Body Info */
+    .card-body-custom {
+        padding: 30px 40px;
+        text-align: left;
+    }
+
+    .info-group {
+        border-bottom: 1px dashed #e9ecef;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+        .info-group:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    .info-label {
+        font-size: 14px;
+        color: #888;
+        font-weight: 600;
+        margin-bottom: 4px;
+        display: block;
+    }
+
+    .info-value {
+        font-size: 18px;
+        color: var(--text-dark);
+        font-weight: 700;
+    }
+
+    .info-icon {
+        color: var(--danger);
+        width: 25px;
+        text-align: center;
+        margin-right: 8px;
+    }
+
+    /* Buttons */
+    .btn-delete {
+        background-color: var(--danger);
+        color: white;
+        font-weight: 700;
+        padding: 15px 30px;
+        border-radius: 50px;
+        border: none;
+        font-size: 16px;
+        transition: all 0.3s;
+        width: 100%;
+        text-transform: uppercase;
+        box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+        cursor: pointer;
+    }
+
+        .btn-delete:hover {
+            background-color: var(--danger-dark);
+            transform: translateY(-2px);
+        }
+
+    .btn-cancel {
+        display: inline-block;
+        margin-top: 20px;
+        color: #6c757d;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+        .btn-cancel:hover {
+            color: #343a40;
+            text-decoration: underline;
+        }
+
+    @@keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="delete-card">
+
+        <div class="card-header-danger">
+            <i class="fas fa-exclamation-triangle warning-icon"></i>
+            <h2 class="card-title">Xác nhận hủy lịch</h2>
+            <p class="card-subtitle">Bạn có chắc chắn muốn xóa lịch hẹn này không?</p>
+        </div>
+
+        <div class="card-body-custom">
+
+            <div class="info-group">
+                <span class="info-label"><i class="fas fa-user info-icon"></i> Người đặt lịch</span>
+                <div class="info-value">
+                    @(Model.NguoiDung != null ? Model.NguoiDung.HoTen : "Không xác định")
+                </div>
+            </div>
+
+            <div class="info-group">
+                <span class="info-label"><i class="fas fa-user-md info-icon"></i> Bác sĩ phụ trách</span>
+                <div class="info-value">
+                    @* --- ĐÃ SỬA DÒNG NÀY --- *@
+                    @(Model.QuanTri != null ? Model.QuanTri.HoTen : "Chưa phân công")
+                </div>
+            </div>
+
+            <div class="info-group">
+                <span class="info-label"><i class="far fa-clock info-icon"></i> Thời gian hẹn</span>
+                <div class="info-value">
+                    @(Model.BatDau.HasValue ? Model.BatDau.Value.ToString("dd/MM/yyyy - HH:mm") : "Chưa xác định")
+                </div>
+            </div>
+
+            <div class="info-group">
+                <span class="info-label"><i class="fas fa-notes-medical info-icon"></i> Lý do khám</span>
+                <div class="info-value">@Html.DisplayFor(model => model.ChuDe)</div>
+            </div>
+
+            <div class="mt-4">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <button type="submit" class="btn-delete">
+                        <i class="fas fa-trash-alt me-2"></i> Xác nhận xóa
+                    </button>
+
+                    <div class="text-center">
+                        <a href="@Url.Action("Index")" class="btn-cancel">
+                            <i class="fas fa-arrow-left me-1"></i> Quay lại danh sách, không xóa nữa
+                        </a>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
 </div>

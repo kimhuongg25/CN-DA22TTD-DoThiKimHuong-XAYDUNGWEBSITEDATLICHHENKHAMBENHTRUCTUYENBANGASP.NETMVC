@@ -2,106 +2,223 @@
 @using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lịch khám của bạn";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var u = Session["user"] as WebAppYte.Models.NguoiDung;
 }
-<style type="text/css">
-    .imgavt {
-        margin-right: 15px;
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    body {
+        font-size: 16.5px; /* mặc định ~14px */
+    }
+
+    h2.text-primary {
+        font-size: 26px;
+        font-weight: 800;
+    }
+
+    /* Custom CSS cho trang Lịch khám */
+    .appointment-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+        transition: transform 0.2s;
+        border-left: 5px solid #ddd; /* Màu mặc định */
+    }
+
+        .appointment-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+    /* Màu viền theo trạng thái */
+    .status-pending {
+        border-left-color: #ffc107 !important;
+    }
+    /* Vàng */
+    .status-confirmed {
+        border-left-color: #0d6efd !important;
+    }
+    /* Xanh dương */
+    .status-completed {
+        border-left-color: #198754 !important;
+    }
+    /* Xanh lá */
+
+    .avatar-wrapper img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #f8f9fa;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .info-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .info-item {
+        margin-bottom: 5px;
+        color: #555;
+        font-size: 1.05rem;
+    }
+
+        .info-item i {
+            width: 25px;
+            color: #0d6efd;
+            text-align: center;
+        }
+
+    .filter-bar .btn {
+        margin-right: 5px;
+        border-radius: 20px;
+        font-weight: 600;
+    }
+
+    .pagination-container {
+        text-align: center;
+        margin-top: 30px;
     }
 </style>
 
+<div class="container py-4">
+    <div class="row mb-4 align-items-center">
+        <div class="col-md-6">
+            <h2 class="text-primary"><i class="fas fa-calendar-check"></i> Lịch khám của bạn</h2>
+        </div>
+        <div class="col-md-6 text-right filter-bar" style="text-align: right;">
+            <a href="@Url.Action("Create")" class="btn btn-warning shadow-sm">
+                <i class="fas fa-plus"></i> Đặt mới
+            </a>
+            <a href="@Url.Action("Dangxuly", "LichKham", new { id = u.IDNguoiDung })" class="btn btn-outline-secondary">
+                Đang chờ
+            </a>
+            <a href="@Url.Action("Daxacnhan", "LichKham", new { id = u.IDNguoiDung })" class="btn btn-outline-primary">
+                Đã xác nhận
+            </a>
+            <a href="@Url.Action("Datuvanxong", "LichKham", new { id = u.IDNguoiDung })" class="btn btn-outline-success">
+                Hoàn thành
+            </a>
+        </div>
+    </div>
 
-<h2>Lịch khám của bạn</h2>
-<h4><i> Chú ý : Thời gian tư vấn tối đa cho mỗi lần tư vấn là : 40 phút</i></h4>
+    <hr />
 
-
-
-<div>
-    <button class="btn-default">
-        <b>@Html.ActionLink("Đặt mới", "Create")</b>
-    </button>
-    <button class="btn-default">
-        <a href="@Url.Action("Dangxuly", "LichKham", new { id = u.IDNguoiDung  })">Đang xác nhận</a>
-    </button>
-    <button class="btn-default">
-        <a href="@Url.Action("Daxacnhan", "LichKham", new { id = u.IDNguoiDung  })">Đã xác nhận</a>
-    </button>
-    <button class="btn-default">
-        <a href="@Url.Action("Datuvanxong", "LichKham", new { id = u.IDNguoiDung  })">Đã xong</a>
-    </button>
-</div>
-
-<br />
-<div style="float:left">
-    <div class="col-md-12">
-
+    <div class="row">
+        @if (Model.Count == 0)
+        {
+            <div class="col-12 text-center py-5">
+                <img src="https://cdn-icons-png.flaticon.com/512/7486/7486744.png" width="100" style="opacity:0.5" />
+                <p class="text-muted mt-3">Bạn chưa có lịch khám nào trong danh sách này.</p>
+                <a href="@Url.Action("Create")" class="btn btn-primary">Đặt lịch ngay</a>
+            </div>
+        }
 
         @foreach (var item in Model)
         {
-            <img class="imgavt" src="~/images/images/avatar.jpg" width="190" height="190" style="float:left" />
+            // Xác định class CSS dựa trên trạng thái
+            string statusClass = "status-pending";
+            if (item.TrangThai == 1) { statusClass = "status-confirmed"; }
+            else if (item.TrangThai == 2) { statusClass = "status-completed"; }
 
-            <b>Người đặt lịch: @item.NguoiDung.HoTen</b>
-            <h4>Bác sĩ tư vấn: @item.QuanTri.HoTen</h4>
-            <h4>Hẹn vào lúc: @item.BatDau.Value.ToString("dd/MM/yyyy HH:mm:ss")</h4>
-            <h4>Nội dung tư vấn : @item.ChuDe</h4>
+            <div class="col-12">
+                <div class="appointment-card @statusClass">
+                    <div class="row align-items-center">
 
-            {
-                if (@item.TrangThai == 0)
-                {
-                    <h5 style="color:blueviolet"> Đang chờ xác nhận. </h5>
-                    <button>
-                        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.IDLichKham })
-                    </button>
-                    <button>
-                        @Html.ActionLink("Xóa lịch", "Delete", new { id = item.IDLichKham })
-                    </button>
-                    <hr />
-                }
-                else if (@item.TrangThai == 1)
-                {
-                    <h5 style="color:red"> Đã xác nhận lịch </h5>
-                    DateTime now = DateTime.Now;
-                    DateTime bd = (DateTime)item.BatDau;
-                    int sosanh = DateTime.Compare(now, bd);
-                    TimeSpan i = bd.Subtract(now);
-                    if (sosanh < 0)
-                    {
-                        <h4>Còn @i.Days ngày: @i.Hours giờ : @i.Minutes phút :@i.Seconds giây</h4>
-                        <button class="btn-success"> Chưa đến giờ tư vấn</button>
-                        <hr />
-                    }
-                    else
-                    {
-                        <h4>Link tư vấn: <button class="btn-info"><a href="@item.DiaChi" style="color:white"> BẮT ĐẦU CUỘC GỌI</a></button> </h4>
-                        <hr />
-                    }
-                }
-                else if (@item.TrangThai == 2)
-                {
-                    <h5 style="color:red"> Đã tư vấn xong. </h5>
-                    //<h4>Kết thúc lúc: @item.KetThuc.Value.ToString("dd/MM/yyyy HH:mm:ss")</h4>
-                    <h4>Ghi chú tư vấn : @item.KetQuaKham</h4>
-                    <hr />
+                        <div class="col-md-2 text-center avatar-wrapper">
+                            <img src="~/images/images/avatar.jpg" alt="Avatar Bác sĩ" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3774/3774299.png'" />
+                        </div>
 
-                }
-                else
-                {
-                    <h5 style="color:red"> Lỗi </h5>
-                }
+                        <div class="col-md-6">
+                            <div class="info-title">@item.QuanTri.HoTen</div>
+                            <div class="info-item"><i class="fas fa-user-injured"></i> Bệnh nhân: <strong>@item.NguoiDung.HoTen</strong></div>
+                            <div class="info-item"><i class="far fa-clock"></i> Thời gian: <strong>@item.BatDau.Value.ToString("dd/MM/yyyy - HH:mm")</strong></div>
+                            <div class="info-item"><i class="fas fa-stethoscope"></i> Vấn đề: @item.ChuDe</div>
 
-            }
+                            @if (item.TrangThai == 2)
+                            {
+                                <div class="mt-2 p-2 bg-light rounded border text-muted">
+                                    <small><i class="fas fa-sticky-note"></i> <b>Ghi chú bác sĩ:</b> @item.KetQuaKham</small>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="col-md-4 text-center d-flex flex-column justify-content-center">
+
+                            @if (item.TrangThai == 0)
+                            {
+                                <div class="mb-3">
+                                    <span class="badge bg-warning text-dark p-2" style="font-size:14px">
+                                        <i class="fas fa-hourglass-half"></i> Chờ xác nhận
+                                    </span>
+                                </div>
+                                <div class="btn-group">
+                                    <a href="@Url.Action("Edit", new { id = item.IDLichKham })" class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-edit"></i> Sửa
+                                    </a>
+                                    <a href="@Url.Action("Delete", new { id = item.IDLichKham })" class="btn btn-sm btn-outline-danger">
+                                        <i class="fas fa-trash"></i> Hủy
+                                    </a>
+                                </div>
+                            }
+                            else if (item.TrangThai == 1)
+                            {
+                                <div class="mb-3">
+                                    <span class="badge bg-primary p-2" style="font-size:14px">
+                                        <i class="fas fa-check-circle"></i> Đã xác nhận
+                                    </span>
+                                </div>
+
+                                DateTime now = DateTime.Now;
+                                DateTime bd = (DateTime)item.BatDau;
+                                int sosanh = DateTime.Compare(now, bd);
+
+                                if (sosanh < 0)
+                                {
+                                    TimeSpan i = bd.Subtract(now);
+                                    <div class="alert alert-info py-1 mb-0" style="font-size: 13px;">
+                                        Sắp diễn ra trong:<br />
+                                        <b>@i.Days ngày @i.Hours giờ @i.Minutes phút</b>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <a href="@item.DiaChi" target="_blank" class="btn btn-success btn-lg shadow">
+                                        <i class="fas fa-video"></i> BẮT ĐẦU TƯ VẤN
+                                    </a>
+                                }
+                            }
+                            else if (item.TrangThai == 2)
+                            {
+                                <div class="mb-3">
+                                    <span class="badge bg-success p-2" style="font-size:14px">
+                                        <i class="fas fa-check-double"></i> Đã hoàn thành
+                                    </span>
+                                </div>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Lỗi dữ liệu</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
         }
-        <br />
+    </div>
 
-
-        <br />
+    <div class="pagination-container">
         Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-
-        @Html.PagedListPager(Model, page => Url.Action("Index",
-            new { page }))
-
+        <div class="d-flex justify-content-center mt-2">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
     </div>
 </div>
-

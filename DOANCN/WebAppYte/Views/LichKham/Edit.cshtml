@@ -1,63 +1,258 @@
 ﻿@model WebAppYte.Models.LichKham
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Cập nhật lịch hẹn";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var u = Session["user"] as WebAppYte.Models.NguoiDung;
 }
 
-<h2>Chỉnh sửa lịch tư vấn</h2>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
+<style>
+    :root {
+        --primary: #0d6efd;
+        --warning: #ffc107;
+        --warning-dark: #d39e00;
+        --bg-light: #f4f6f9;
+        --card-border: #e9ecef;
+    }
 
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.IDLichKham)
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-light);
+    }
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDNguoiDung, "Người đặt lịch khám", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <select class="form-control" id="IDNguoiDung" name="IDNguoiDung">
-                <option value="@u.IDNguoiDung">@u.HoTen</option>
-            </select>
-            @Html.ValidationMessageFor(model => model.IDNguoiDung, "", new { @class = "text-danger" })
+    .content-wrapper {
+        min-height: 85vh;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Edit Card */
+    .edit-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        border: none;
+        overflow: hidden;
+        width: 100%;
+        max-width: 800px; /* Tăng chiều rộng lên 800px để chia 2 cột đẹp hơn */
+    }
+
+    .card-header-custom {
+        background: linear-gradient(135deg, #ffc107, #ffca2c);
+        padding: 25px 30px;
+        color: #212529;
+        text-align: center;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .card-title {
+        font-weight: 800;
+        font-size: 24px;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #495057;
+    }
+
+    .card-body-custom {
+        padding: 40px 50px; /* Tăng padding ngang */
+    }
+
+    /* Form Styles */
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-label-custom {
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 8px;
+        display: block;
+        font-size: 15px;
+    }
+
+    .input-group-text {
+        background-color: #f8f9fa;
+        border-right: none;
+        color: #495057;
+        font-size: 16px;
+        width: 45px;
+        justify-content: center;
+    }
+
+    .form-control-custom {
+        border-left: none;
+        border-radius: 0 8px 8px 0;
+        height: 50px;
+        font-size: 15px;
+        border-color: #ced4da;
+    }
+
+    .form-control-custom:focus {
+        box-shadow: none;
+        border-color: var(--warning);
+    }
+
+    .input-group:focus-within .input-group-text {
+        border-color: var(--warning);
+        color: var(--warning-dark);
+    }
+
+    .input-readonly {
+        background-color: #e9ecef !important;
+        color: #6c757d;
+        cursor: not-allowed;
+        font-weight: 600;
+    }
+
+    textarea.form-control-custom {
+        height: auto;
+        padding-top: 15px;
+        line-height: 1.6;
+    }
+
+    /* Buttons */
+    .action-center {
+        width: 260px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* Nút lưu */
+    .btn-save {
+        display: block;
+        width: 40%;
+        background-color: var(--warning);
+        color: #212529;
+        font-weight: 700;
+        padding: 12px 0;
+        border-radius: 50px;
+        border: none;
+        font-size: 16px;
+        text-transform: uppercase;
+        box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+        transition: all 0.3s;
+        margin: 0 auto;
+    }
+
+        .btn-save:hover {
+            background-color: var(--warning-dark);
+            color: #fff;
+            transform: translateY(-2px);
+
+        }
+
+    .btn-cancel {
+        display: block;
+        margin-top: 12px;
+        font-weight: 800;
+        font-size: 15px;
+        color: #6c757d;
+        text-decoration: none;
+    }
+
+        .btn-cancel:hover {
+            color: #343a40;
+            text-decoration: underline;
+        }
+
+
+
+
+    @@media (max-width: 768px) {
+        .card-body-custom { padding: 25px; }
+    }
+</style>
+
+<div class="container content-wrapper">
+    <div class="edit-card">
+
+        <div class="card-header-custom">
+            <h2 class="card-title"><i class="fas fa-edit me-2"></i> Chỉnh sửa lịch hẹn</h2>
+        </div>
+
+        <div class="card-body-custom">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "alert alert-danger mb-4" })
+                @Html.HiddenFor(model => model.IDLichKham)
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label-custom">Người đặt lịch</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control form-control-custom input-readonly" value="@u.HoTen" readonly />
+                                <input type="hidden" name="IDNguoiDung" value="@u.IDNguoiDung" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label-custom">Bác sĩ phụ trách</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user-md"></i></span>
+                                @Html.DropDownList("IDQuanTri", null, new { @class = "form-control form-control-custom" })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.IDQuanTri, "", new { @class = "text-danger mt-1 small" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Địa chỉ -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label-custom">Địa chỉ</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </span>
+                                @Html.EditorFor(model => model.DiaChi,
+                                    new { htmlAttributes = new { @class = "form-control form-control-custom" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger mt-1 small" })
+                        </div>
+                    </div>
+
+                    <!-- Lý do / Triệu chứng -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label-custom">Lý do khám / Triệu chứng</label>
+                            <div class="input-group">
+                                <span class="input-group-text" style="align-items: flex-start; padding-top: 15px;">
+                                    <i class="fas fa-notes-medical"></i>
+                                </span>
+                                @Html.TextAreaFor(model => model.ChuDe,
+                                    new { @class = "form-control form-control-custom", rows = "5" })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.ChuDe, "", new { @class = "text-danger mt-1 small" })
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row mt-4">
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save me-2"></i> Lưu thay đổi
+                        </button>
+
+                        <a href="@Url.Action("Index")" class="btn-cancel">
+                            <i class="fas fa-arrow-left me-1"></i> Hủy bỏ và Quay lại
+                        </a>
+                    </div>
+                </div>
+
+            }
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDQuanTri, "Đặt lịch với bác sĩ", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDQuanTri", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.IDQuanTri, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.DiaChi, "Địa chỉ", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.DiaChi, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.ChuDe, "Lý do đặt lịch", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.ChuDe, new { @class = "form-control", rows = "5", cols = "50" })
-            @Html.ValidationMessageFor(model => model.ChuDe, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Chỉnh sửa" class="btn btn-default" />
-        </div>
-    </div>
-</div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

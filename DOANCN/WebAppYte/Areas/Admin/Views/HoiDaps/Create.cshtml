@@ -1,84 +1,223 @@
 ﻿@model WebAppYte.Models.HoiDap
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Thêm mới Hỏi Đáp";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
 }
 
-<h2>Create</h2>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>HoiDap</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.CauHoi, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CauHoi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CauHoi, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<style>
+    :root {
+        --primary: #4e73df;
+        --success: #1cc88a;
+        --bg-light: #f8f9fc;
+        --border-color: #e3e6f0;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TraLoi, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TraLoi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TraLoi, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fc;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IDNguoiDung, "IDNguoiDung", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IDNguoiDung", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IDNguoiDung, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    /* Card Styling */
+    .form-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
+        margin: 30px;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IDQuanTri, "IDQuanTri", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IDQuanTri", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IDQuanTri, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    select.form-control {
+        height: 44px;
+        font-size: 15px;
+    }
+    .card-header {
+        background-color: #f8f9fc;
+        padding: 20px 30px;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NgayGui, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NgayGui, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NgayGui, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    .card-title {
+        margin: 0;
+        font-weight: 700;
+        color: #4e73df;
+        font-size: 18px;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.GhiChu, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    .card-body {
+        padding: 30px;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TrangThai, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    /* Form Styles */
+    .form-label {
+        font-weight: 600;
+        color: #5a5c69;
+        margin-bottom: 8px;
+        display: block;
+        font-size: 14px;
+    }
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+    .form-control {
+        border-radius: 6px;
+        border: 1px solid #d1d3e2;
+        padding: 10px 15px;
+        font-size: 14px;
+        width: 100%;
+        transition: 0.2s;
+    }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+            outline: none;
+        }
+
+    textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    /* Buttons */
+    .btn-create {
+        background-color: var(--success);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 6px;
+        border: none;
+        font-weight: 600;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+
+        .btn-create:hover {
+            background-color: #17a673;
+            transform: translateY(-1px);
+        }
+
+    .btn-back {
+        color: #858796;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        margin-right: 15px;
+        transition: 0.2s;
+    }
+
+        .btn-back:hover {
+            color: #5a5c69;
+        }
+
+    /* Layout Helpers */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+    }
+
+    .col-md-6 {
+        width: 50%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .col-12 {
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .mb-3 {
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="form-card">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-plus-circle me-2"></i> Thêm mới Hỏi Đáp
+        </h3>
+        <a href="@Url.Action("Index")" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Quay lại danh sách
+        </a>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-primary mb-3" style="border-bottom: 2px solid #e3e6f0; padding-bottom: 10px;">
+                        <i class="fas fa-question-circle"></i> Thông tin Câu hỏi
+                    </h5>
+
+                    <div class="mb-3">
+                        <label class="form-label">Người gửi câu hỏi</label>
+                        @Html.DropDownList("IDNguoiDung", null, "--- Chọn người gửi ---", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IDNguoiDung, "", new { @class = "text-danger small" })
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Ngày gửi</label>
+                        @Html.EditorFor(model => model.NgayGui, new { htmlAttributes = new { @class = "form-control", type = "datetime-local", Value = DateTime.Now.ToString("yyyy-MM-ddTHH:mm") } })
+                        @Html.ValidationMessageFor(model => model.NgayGui, "", new { @class = "text-danger small" })
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nội dung câu hỏi</label>
+                        @Html.TextAreaFor(model => model.CauHoi, new { @class = "form-control", rows = "6", placeholder = "Nhập nội dung câu hỏi..." })
+                        @Html.ValidationMessageFor(model => model.CauHoi, "", new { @class = "text-danger small" })
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h5 class="text-success mb-3" style="border-bottom: 2px solid #e3e6f0; padding-bottom: 10px;">
+                        <i class="fas fa-reply"></i> Phần Trả lời & Quản trị
+                    </h5>
+
+                    <div class="mb-3">
+                        <label class="form-label">Người duyệt / Trả lời</label>
+                        @Html.DropDownList("IDQuanTri", null, "--- Chọn quản trị viên ---", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IDQuanTri, "", new { @class = "text-danger small" })
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nội dung trả lời (nếu có)</label>
+                        @Html.TextAreaFor(model => model.TraLoi, new { @class = "form-control", rows = "6", placeholder = "Nhập nội dung trả lời tại đây..." })
+                        @Html.ValidationMessageFor(model => model.TraLoi, "", new { @class = "text-danger small" })
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Trạng thái (1: Đã xong, 0: Chờ)</label>
+                            @Html.EditorFor(model => model.TrangThai, new { htmlAttributes = new { @class = "form-control", placeholder = "0" } })
+                            @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger small" })
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Ghi chú nội bộ</label>
+                            @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger small" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #e3e6f0;">
+
+            <div class="text-right" style="text-align: right;">
+                <a href="@Url.Action("Index")" class="btn-back" style="margin-right: 20px;">Hủy bỏ</a>
+                <button type="submit" class="btn-create">
+                    <i class="fas fa-check me-2"></i> Tạo mới
+                </button>
+            </div>
+        }
+    </div>
 </div>
