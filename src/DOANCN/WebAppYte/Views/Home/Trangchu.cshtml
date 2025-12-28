@@ -1,0 +1,210 @@
+﻿@using WebAppYte.Models
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var u = Session["user"] as WebAppYte.Models.NguoiDung;
+    var userBS = Session["userBS"] as WebAppYte.Models.QuanTri;
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary-blue: #0d6efd;
+        --primary-dark: #0a58ca;
+        --soft-bg: #f3f6f9;
+        --card-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    body {
+        background-color: var(--soft-bg);
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Container căn giữa */
+    .welcome-wrapper {
+        min-height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
+    /* Card chính */
+    .welcome-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: var(--card-shadow);
+        overflow: hidden;
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #fff;
+    }
+
+    /* Phần Header màu (Gradient) */
+    .card-header-banner {
+        background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+        height: 150px;
+        position: relative;
+    }
+
+    /* Phần Body */
+    .card-content {
+        padding: 0 40px 40px 40px;
+        text-align: center;
+        margin-top: -60px; /* Đẩy nội dung lên đè banner */
+    }
+
+    /* Avatar */
+    .user-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 5px solid white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        object-fit: cover;
+        background-color: white;
+        margin-bottom: 20px;
+    }
+
+    /* Typography */
+    .welcome-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .welcome-subtitle {
+        color: #6c757d;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    /* Grid Button Actions */
+    .action-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+
+    /* Button Styles */
+    .action-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #e9ecef;
+        border-radius: 12px;
+        text-decoration: none;
+        color: #495057;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .action-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        border-color: var(--primary-blue);
+        color: var(--primary-blue);
+        text-decoration: none;
+    }
+
+    .action-icon {
+        font-size: 32px;
+        margin-bottom: 10px;
+        color: var(--primary-blue);
+    }
+
+    .btn-text {
+        font-weight: 600;
+        font-size: 15px;
+    }
+    
+    /* Doctor Specific Colors */
+    .doctor-theme .card-header-banner {
+        background: linear-gradient(135deg, #198754, #20c997);
+    }
+    .doctor-theme .action-icon { color: #198754; }
+    .doctor-theme .action-btn:hover { border-color: #198754; color: #198754; }
+
+</style>
+
+<div class="welcome-wrapper">
+    
+    @if (u != null)
+    {
+        /* --- GIAO DIỆN BỆNH NHÂN --- */
+        <div class="welcome-card">
+            <div class="card-header-banner"></div>
+            
+            <div class="card-content">
+                <img src="~/images/images/avatar.jpg" class="user-avatar" alt="Avatar" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'" />
+                
+                <h2 class="welcome-title">Xin chào, @u.HoTen!</h2>
+                <p class="welcome-subtitle">Chào mừng bạn quay trở lại. Bạn muốn làm gì hôm nay?</p>
+
+                <div class="action-grid">
+                    <a href="@Url.Action("Details", "Nguoidung", new { id = u.IDNguoiDung })" class="action-btn">
+                        <i class="fas fa-user-edit action-icon"></i>
+                        <span class="btn-text">Cập nhật Hồ sơ</span>
+                    </a>
+
+                    <a href="@Url.Action("Index", "LichKham")" class="action-btn">
+                        <i class="fas fa-calendar-plus action-icon"></i>
+                        <span class="btn-text">Đặt lịch khám mới</span>
+                    </a>
+
+                    <a href="#" class="action-btn">
+                        <i class="fas fa-history action-icon"></i>
+                        <span class="btn-text">Lịch sử khám bệnh</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+    else if (userBS != null)
+    {
+        /* --- GIAO DIỆN BÁC SĨ --- */
+        <div class="welcome-card doctor-theme">
+            <div class="card-header-banner"></div>
+
+            <div class="card-content">
+                @if (!string.IsNullOrEmpty(userBS.AnhBia))
+                {
+                    <img src="~/Content/images/bacsi/@userBS.AnhBia" class="user-avatar" alt="BS Avatar" />
+                }
+                else
+                {
+                    <img src="~/Common/images/" class="user-avatar" alt="BS Avatar" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3774/3774299.png'"/>
+                }
+
+                <h2 class="welcome-title">Bác sĩ @userBS.HoTen</h2>
+                <p class="welcome-subtitle">Chúc bác sĩ một ngày làm việc hiệu quả!</p>
+
+                <div class="action-grid">
+                    <a href="@Url.Action("Kiemtralichhen", "Bacsi")" class="action-btn">
+                        <i class="fas fa-calendar-check action-icon"></i>
+                        <span class="btn-text">Xem lịch ngay</span>
+                    </a>
+
+                  
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <h3 class="text-muted">Vui lòng đăng nhập để tiếp tục.</h3>
+            <a href="@Url.Action("Login", "Nguoidung")" class="btn btn-primary mt-3">Đăng nhập ngay</a>
+        </div>
+    }
+</div>

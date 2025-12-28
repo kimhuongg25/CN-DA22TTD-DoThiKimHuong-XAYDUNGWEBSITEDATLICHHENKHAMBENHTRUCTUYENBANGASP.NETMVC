@@ -1,0 +1,201 @@
+﻿@model WebAppYte.Models.Khoa
+
+@{
+    ViewBag.Title = "Chi tiết Chuyên khoa";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary: #4e73df;
+        --secondary: #858796;
+        --bg-light: #f8f9fc;
+        --border-color: #e3e6f0;
+        --text-dark: #2c3e50;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-light);
+    }
+
+    .content-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    /* Card Styling */
+    .detail-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
+        width: 100%;
+        max-width: 700px;
+        overflow: hidden;
+    }
+
+    .card-header-custom {
+        background-color: white;
+        padding: 20px 30px;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .card-title {
+        margin: 0;
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .card-body-custom {
+        padding: 40px;
+    }
+
+    /* Content Styling */
+    .dept-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .dept-icon {
+        width: 70px;
+        height: 70px;
+        background-color: #e0e7ff; /* Xanh nhạt */
+        color: var(--primary);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        margin-right: 20px;
+    }
+
+    .dept-info h2 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--text-dark);
+    }
+
+    .dept-info span {
+        font-size: 14px;
+        color: #858796;
+        font-weight: 500;
+    }
+
+    /* Description Box */
+    .desc-section {
+        margin-top: 20px;
+    }
+
+    .desc-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: #5a5c69;
+        margin-bottom: 10px;
+        display: block;
+        text-transform: uppercase;
+    }
+
+    .desc-box {
+        background-color: #f8f9fc;
+        border-left: 4px solid var(--primary);
+        padding: 20px;
+        border-radius: 4px;
+        color: #444;
+        line-height: 1.6;
+        font-size: 15px;
+        text-align: justify;
+    }
+
+    /* Buttons */
+    .btn-edit {
+        background-color: var(--primary);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: 0.2s;
+        box-shadow: 0 4px 10px rgba(78, 115, 223, 0.2);
+    }
+
+        .btn-edit:hover {
+            background-color: #2e59d9;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    .btn-back {
+        color: #858796;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        transition: 0.2s;
+    }
+
+        .btn-back:hover {
+            color: var(--text-dark);
+        }
+</style>
+
+<div class="content-wrapper">
+    <div class="detail-card">
+
+        <div class="card-header-custom">
+            <h3 class="card-title">
+                <i class="fas fa-info-circle me-2"></i> Chi tiết Chuyên Khoa
+            </h3>
+            <a href="@Url.Action("Index")" class="btn-back">
+                <i class="fas fa-arrow-left me-1"></i> Quay lại danh sách
+            </a>
+        </div>
+
+        <div class="card-body-custom">
+
+            <div class="dept-header">
+                <div class="dept-icon">
+                    <i class="fas fa-hospital-user"></i>
+                </div>
+                <div class="dept-info">
+                    <span>Tên Chuyên khoa:</span>
+                    <h2>@Html.DisplayFor(model => model.TenKhoa)</h2>
+                </div>
+            </div>
+
+            <div class="desc-section">
+                <span class="desc-label"><i class="fas fa-align-left me-2"></i> Mô tả / Giới thiệu</span>
+                <div class="desc-box">
+                    @if (!string.IsNullOrEmpty(Model.MoTa))
+                    {
+                        @Html.Raw(Model.MoTa.Replace("\n", "<br>"))
+                    }
+                    else
+                    {
+                        <span class="text-muted"><i>Chưa có thông tin mô tả cho chuyên khoa này.</i></span>
+                    }
+                </div>
+            </div>
+
+            <div class="mt-4 text-right" style="text-align: right;">
+                <a href="@Url.Action("Edit", new { id = Model.IDKhoa })" class="btn-edit">
+                    <i class="fas fa-edit me-2"></i> Chỉnh sửa thông tin
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,214 @@
+﻿@model WebAppYte.Models.Tintuc
+
+@{
+    ViewBag.Title = "Xóa Tin tức";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --danger: #e74a3b;
+        --danger-dark: #c0392b;
+        --dark: #5a5c69;
+        --bg-light: #f8f9fc;
+        --text-muted: #858796;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-light);
+    }
+
+    .content-wrapper {
+        min-height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
+    /* Card Styling */
+    .delete-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 550px;
+        overflow: hidden;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    /* Header */
+    .card-header-danger {
+        background: linear-gradient(135deg, #e74a3b, #d62c1a);
+        padding: 25px;
+        color: white;
+        text-align: center;
+    }
+
+    .warning-icon {
+        font-size: 40px;
+        margin-bottom: 10px;
+        opacity: 0.9;
+        animation: swing 2s infinite ease-in-out;
+    }
+
+    .card-title {
+        font-weight: 800;
+        font-size: 20px;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Body */
+    .card-body {
+        padding: 30px;
+    }
+
+    /* News Content Preview */
+    .news-preview {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .news-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #e3e6f0;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .news-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+
+    .news-meta {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .news-sapo {
+        background-color: #f8f9fc;
+        padding: 15px;
+        border-radius: 6px;
+        font-size: 14px;
+        color: #5a5c69;
+        text-align: justify;
+        border-left: 3px solid var(--danger);
+        font-style: italic;
+    }
+
+    /* Buttons */
+    .btn-delete {
+        background-color: var(--danger);
+        color: white;
+        font-weight: 700;
+        padding: 12px 30px;
+        border-radius: 50px;
+        border: none;
+        width: 100%;
+        font-size: 16px;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        box-shadow: 0 4px 10px rgba(231, 74, 59, 0.3);
+        cursor: pointer;
+    }
+
+    .btn-delete:hover {
+        background-color: var(--danger-dark);
+        transform: translateY(-2px);
+    }
+
+    .btn-cancel {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: 0.2s;
+    }
+
+    .btn-cancel:hover { color: #5a5c69; text-decoration: underline; }
+
+    @@keyframes swing {
+        0% { transform: rotate(0deg); }
+        20% { transform: rotate(15deg); }
+        40% { transform: rotate(-10deg); }
+        60% { transform: rotate(5deg); }
+        80% { transform: rotate(-5deg); }
+        100% { transform: rotate(0deg); }
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="delete-card">
+
+        <div class="card-header-danger">
+            <i class="fas fa-trash-alt warning-icon"></i>
+            <h3 class="card-title">Xóa Tin Tức</h3>
+            <p style="font-size: 13px; margin: 5px 0 0 0; opacity: 0.9;">Hành động này sẽ xóa bài viết vĩnh viễn.</p>
+        </div>
+
+        <div class="card-body">
+
+            <div class="news-preview">
+                @if (!string.IsNullOrEmpty(Model.Hinhanh))
+                {
+                    <img src="@Model.Hinhanh" alt="Ảnh bài viết" class="news-img" onerror="this.src='https://via.placeholder.com/500x200?text=No+Image'" />
+                }
+                else
+                {
+                    <div style="height: 100px; background: #eee; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 15px;">
+                        <span class="text-muted">Không có ảnh đại diện</span>
+                    </div>
+                }
+
+                <div class="news-title">@Html.DisplayFor(model => model.Tieude)</div>
+
+                <div class="news-meta">
+                    <span><i class="far fa-clock me-1"></i> @Html.DisplayFor(model => model.Ngaydang)</span>
+                    <span><i class="fas fa-tag me-1"></i> @Html.DisplayFor(model => model.TheLoai)</span>
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.Mota))
+                {
+                    <div class="news-sapo">
+                        "@Html.DisplayFor(model => model.Mota)"
+                    </div>
+                }
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="mt-4">
+                    <button type="submit" class="btn-delete">
+                        <i class="fas fa-trash me-2"></i> Xác nhận xóa
+                    </button>
+
+                    <a href="@Url.Action("Index")" class="btn-cancel">
+                        <i class="fas fa-arrow-left me-1"></i> Hủy bỏ và Quay lại
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,255 @@
+﻿@model WebAppYte.Models.NguoiDung
+
+@{
+    ViewBag.Title = "Chi tiết hồ sơ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary: #0d6efd;
+        --secondary: #6c757d;
+        --bg-color: #f4f6f9;
+        --card-border: #e9ecef;
+    }
+
+    body {
+        background-color: var(--bg-color);
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Layout Wrapper */
+    .content-wrapper {
+        min-height: 85vh;
+        padding: 40px 0;
+    }
+
+    /* Left Column: Identity Card */
+    .identity-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        text-align: center;
+        padding: 30px 20px;
+        border: 1px solid var(--card-border);
+        height: 100%;
+    }
+
+    .avatar-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #f8f9fa;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 15px;
+    }
+
+    .user-name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .user-role {
+        color: var(--secondary);
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .btn-edit-profile {
+        background-color: #ffc107;
+        color: #856404;
+        font-weight: 600;
+        padding: 8px 20px;
+        border-radius: 20px;
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.2s;
+    }
+    .btn-edit-profile:hover {
+        background-color: #ffca2c;
+        color: #856404;
+        text-decoration: none;
+    }
+
+    /* Right Column: Details */
+    .details-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        padding: 30px;
+        border: 1px solid var(--card-border);
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    /* Info Rows */
+    .info-row {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .info-label {
+        font-weight: 600;
+        color: #555;
+        width: 140px; /* Cố định chiều rộng nhãn */
+        display: flex;
+        align-items: center;
+    }
+
+    .info-label i {
+        width: 20px;
+        color: var(--primary);
+        margin-right: 8px;
+        text-align: center;
+    }
+
+    .info-value {
+        color: #333;
+        font-weight: 500;
+        flex: 1;
+    }
+
+    /* Action Buttons (Footer) */
+    .action-container {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .btn-action-lg {
+        flex: 1;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-booking {
+        background: linear-gradient(135deg, #0d6efd, #0043a8);
+        box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+    }
+
+    .btn-ask {
+        background: linear-gradient(135deg, #198754, #146c43);
+        box-shadow: 0 4px 15px rgba(25, 135, 84, 0.3);
+    }
+
+    .btn-action-lg:hover {
+        transform: translateY(-3px);
+        color: white;
+    }
+
+    .btn-action-lg i {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+    /* Responsive */
+        @@media (max-width: 768px) {
+        .identity-card { margin-bottom: 20px; }
+        .action-container { flex-direction: column; }
+    }
+</style>
+
+<div class="container content-wrapper">
+    <div class="row">
+
+        <div class="col-lg-4 col-md-5 mb-4">
+            <div class="identity-card">
+                <h3 class="user-name">@Html.DisplayFor(model => model.HoTen)</h3>
+                <p class="user-role">Thành viên hệ thống</p>
+
+                <div class="mb-3 text-muted small">
+                    <i class="fas fa-user-circle"></i> @Html.DisplayFor(model => model.TaiKhoan)
+                </div>
+
+                <a href="@Url.Action("Edit", new { id = Model.IDNguoiDung })" class="btn-edit-profile">
+                    <i class="fas fa-pen me-1"></i> Cập nhật hồ sơ
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-8 col-md-7">
+            <div class="details-card">
+                <h4 class="section-title"><i class="fas fa-info-circle me-2"></i>Thông tin cá nhân</h4>
+
+                <div class="info-row">
+                    <div class="info-label"><i class="fas fa-venus-mars"></i> Giới tính:</div>
+                    <div class="info-value">@Html.DisplayFor(model => model.GioiTinh.GioiTinh1)</div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-label"><i class="fas fa-id-card"></i> CMND/CCCD:</div>
+                    <div class="info-value">@Html.DisplayFor(model => model.SoCMND)</div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-label"><i class="fas fa-phone"></i> Điện thoại:</div>
+                    <div class="info-value">@Html.DisplayFor(model => model.DienThoai)</div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-label"><i class="fas fa-envelope"></i> Email:</div>
+                    <div class="info-value">@Html.DisplayFor(model => model.Email)</div>
+                </div>
+
+                <hr style="border-top: 1px dashed #ddd; margin: 20px 0;">
+
+                <h4 class="section-title"><i class="fas fa-map-marker-alt me-2"></i>Địa chỉ & Khác</h4>
+
+                <div class="info-row">
+                    <div class="info-label"><i class="fas fa-map"></i> Huyện:</div>
+                    <div class="info-value">@Html.DisplayFor(model => model.Huyen.TenHuyen)</div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-label"><i class="fas fa-home"></i> Địa chỉ:</div>
+                    <div class="info-value">@Html.DisplayFor(model => model.DiaChiCuThe)</div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-label"><i class="fas fa-sticky-note"></i> Ghi chú:</div>
+                    <div class="info-value">
+                        @(string.IsNullOrEmpty(Model.ThongTinKhac) ? "Chưa có thông tin bổ sung" : Model.ThongTinKhac)
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-label"><i class="fas fa-lock"></i> Mật khẩu:</div>
+                    <div class="info-value text-muted">••••••••••</div>
+                </div>
+            </div>
+
+            <div class="action-container">
+                <a href="@Url.Action("Index", "LichKham")" class="btn-action-lg btn-booking">
+                    <i class="far fa-calendar-check"></i> ĐẶT LỊCH KHÁM NGAY
+                </a>
+                <a href="@Url.Action("Index", "Hoidap", new { id = ViewBag.id })" class="btn-action-lg btn-ask">
+                    <i class="far fa-comment-dots"></i> GỬI CÂU HỎI BÁC SĨ
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,475 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|d:\\cn-da22ttd-dothikimhuong-xaydungwebsitedatlichhenkhambenhtructuyenbangasp.netmvc\\doancn\\webappyte\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\home\\trangchu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\home\\trangchu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\homeadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\homeadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\hoidaps\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\hoidaps\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\tintucs\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\tintucs\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\bacsi\\lichdangcho.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\bacsi\\lichdangcho.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\bacsi\\kiemtralichhen.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\bacsi\\kiemtralichhen.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\bacsi\\lichdaxacnhan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\bacsi\\lichdaxacnhan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\bacsi\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\bacsi\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\lichkham\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\lichkham\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\home\\dangky.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\home\\dangky.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\shared\\_layoutuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\shared\\_layoutuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\home\\xemchitiet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\home\\xemchitiet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\lichkham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\lichkham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\lichkham\\daxacnhan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\lichkham\\daxacnhan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\views\\nguoidung\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\views\\nguoidung\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\quantris\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\quantris\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\quantris\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\quantris\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\controllers\\quantriscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\controllers\\quantriscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\trungtamgannhats\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\trungtamgannhats\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\trungtamgannhats\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\trungtamgannhats\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\trungtamgannhats\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\trungtamgannhats\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\trungtamgannhats\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\trungtamgannhats\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\trungtamgannhats\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\trungtamgannhats\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\tintucs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\tintucs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\webappyte\\areas\\admin\\views\\tintucs\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C67BA02-1BAA-44F7-860E-DC8EC5D233B1}|WebAppYte\\WebAppYte.csproj|solutionrelative:webappyte\\areas\\admin\\views\\tintucs\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Web.config",
+              "RelativeDocumentMoniker": "WebAppYte\\Web.config",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Web.config",
+              "RelativeToolTip": "WebAppYte\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-11-25T08:13:53.088Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\HoiDaps\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\HoiDaps\\Index.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\HoiDaps\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\HoiDaps\\Index.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-25T08:39:05.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Details.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Details.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Details.cshtml",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAAM0AAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-25T08:38:13.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Lichdangcho.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Bacsi\\Lichdangcho.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Bacsi\\Lichdangcho.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Bacsi\\Lichdangcho.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Bacsi\\Lichdangcho.cshtml",
+              "ViewState": "AgIAAOcAAAAAAAAAAAAAAPUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-24T16:11:30.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Kiemtralichhen.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Bacsi\\Kiemtralichhen.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Bacsi\\Kiemtralichhen.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Bacsi\\Kiemtralichhen.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Bacsi\\Kiemtralichhen.cshtml",
+              "ViewState": "AgIAACwBAAAAAAAAAAAAAPUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-24T16:10:58.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Lichdaxacnhan.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Bacsi\\Lichdaxacnhan.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Bacsi\\Lichdaxacnhan.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Bacsi\\Lichdaxacnhan.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Bacsi\\Lichdaxacnhan.cshtml",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAAAPUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-24T16:09:40.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Bacsi\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Bacsi\\Index.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Bacsi\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Bacsi\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-24T12:41:58.588Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\LichKham\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\LichKham\\Create.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\LichKham\\Create.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\LichKham\\Create.cshtml",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAAJUAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-24T12:04:26.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Dangky.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Home\\Dangky.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Home\\Dangky.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Home\\Dangky.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Home\\Dangky.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACkAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-24T11:07:02.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAIwEUAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-22T14:43:05.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\HomeAdmin\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\HomeAdmin\\Index.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\HomeAdmin\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\HomeAdmin\\Index.cshtml",
+              "ViewState": "AgIAALQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-22T13:04:54.418Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_LayoutUser.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Shared\\_LayoutUser.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Shared\\_LayoutUser.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Shared\\_LayoutUser.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Shared\\_LayoutUser.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALUAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T16:06:46.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Trangchu.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Home\\Trangchu.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Home\\Trangchu.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Home\\Trangchu.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Home\\Trangchu.cshtml",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAowMwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T15:57:53.283Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\LichKham\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\LichKham\\Index.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\LichKham\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\LichKham\\Index.cshtml",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAAAPUAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T15:12:05.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Daxacnhan.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\LichKham\\Daxacnhan.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\LichKham\\Daxacnhan.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\LichKham\\Daxacnhan.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\LichKham\\Daxacnhan.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T15:09:09.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAFsBAAAAAAAAAAAmwGoBAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T07:53:10.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Xemchitiet.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Home\\Xemchitiet.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Home\\Xemchitiet.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Home\\Xemchitiet.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Home\\Xemchitiet.cshtml",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAAAK0AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T07:52:19.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Nguoidung\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Views\\Nguoidung\\Details.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Views\\Nguoidung\\Details.cshtml",
+              "RelativeToolTip": "WebAppYte\\Views\\Nguoidung\\Details.cshtml",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAowLMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T07:42:39.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "QuanTrisController.cs",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Controllers\\QuanTrisController.cs",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Controllers\\QuanTrisController.cs",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Controllers\\QuanTrisController.cs",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Controllers\\QuanTrisController.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAAwHcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T07:18:03.902Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Index.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Index.cshtml",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAowAQBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T07:08:50.731Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Edit.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Edit.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Edit.cshtml",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAowMEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T07:07:45.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Details.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Details.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Details.cshtml",
+              "ViewState": "AgIAANYAAAAAAAAAAAAQwPEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T07:06:31.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Delete.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Delete.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Delete.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Delete.cshtml",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAIwJYAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T07:05:18.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Create.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Create.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\TrungTamGanNhats\\Create.cshtml",
+              "ViewState": "AgIAALQAAAAAAAAAAAAIwMAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T07:03:09.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Index.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Index.cshtml",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAIwK0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T06:59:40.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Edit.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Edit.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\Tintucs\\Edit.cshtml",
+              "ViewState": "AgIAAPEAAAAAAAAAAAAIwAkBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T06:56:51.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Index.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Index.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Index.cshtml",
+              "ViewState": "AgIAANMAAAAAAAAAAAAowN8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T12:52:46.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Edit.cshtml",
+              "ToolTip": "D:\\CN-DA22TTD-DoThiKimHuong-XAYDUNGWEBSITEDATLICHHENKHAMBENHTRUCTUYENBANGASP.NETMVC\\DOANCN\\WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Edit.cshtml",
+              "RelativeToolTip": "WebAppYte\\Areas\\Admin\\Views\\QuanTris\\Edit.cshtml",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAAANwAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T10:56:58.631Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

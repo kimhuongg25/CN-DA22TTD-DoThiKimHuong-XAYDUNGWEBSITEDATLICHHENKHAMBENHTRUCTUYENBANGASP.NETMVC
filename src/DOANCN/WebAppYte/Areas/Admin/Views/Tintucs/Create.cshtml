@@ -1,0 +1,263 @@
+﻿@model WebAppYte.Models.Tintuc
+
+@{
+    ViewBag.Title = "Soạn thảo Tin tức";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
+}
+
+<script src="~/Common/ckeditor/ckeditor.js"></script>
+<script src="~/Common/ckfinder/ckfinder.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary: #4e73df;
+        --success: #1cc88a;
+        --bg-light: #f8f9fc;
+        --border-color: #e3e6f0;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fc;
+    }
+
+    /* Layout */
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-top: 20px;
+    }
+
+    .page-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #5a5c69;
+        margin: 0;
+    }
+
+    /* Cards */
+    .card-custom {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
+        margin-bottom: 20px;
+    }
+
+    .card-header-custom {
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border-color);
+        font-weight: 700;
+        color: #4e73df;
+        background-color: #fff;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .card-body-custom {
+        padding: 20px;
+    }
+
+    /* Inputs */
+    .form-label {
+        font-weight: 600;
+        color: #5a5c69;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .form-control-lg {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    /* Image Upload Box */
+    .image-upload-container {
+        border: 2px dashed #d1d3e2;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.3s;
+        background: #f8f9fc;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .image-upload-container:hover {
+            border-color: var(--primary);
+            background: #eef2ff;
+        }
+
+    #imgPreview {
+        max-width: 100%;
+        max-height: 200px;
+        display: none; /* Ẩn mặc định */
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+    .upload-placeholder {
+        color: #858796;
+    }
+
+    /* Buttons */
+    .btn-save {
+        width: 100%;
+        padding: 10px;
+        font-weight: 700;
+        background-color: var(--success);
+        color: white;
+        border: none;
+        border-radius: 6px;
+    }
+
+        .btn-save:hover {
+            background-color: #17a673;
+        }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="container-fluid" style="padding: 0 20px 30px 20px;">
+
+        <div class="page-header">
+            <h2 class="page-title"><i class="fas fa-pen-nib me-2"></i> Soạn thảo Tin tức mới</h2>
+            <a href="@Url.Action("Index")" class="btn btn-secondary btn-sm">
+                <i class="fas fa-arrow-left"></i> Quay lại
+            </a>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-9">
+                <div class="card-custom">
+                    <div class="card-body-custom">
+                        <div class="form-group mb-4">
+                            @Html.LabelFor(model => model.Tieude, "Tiêu đề bài viết", htmlAttributes: new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Tieude, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = "Nhập tiêu đề tại đây..." } })
+                            @Html.ValidationMessageFor(model => model.Tieude, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-4">
+                            @Html.LabelFor(model => model.Mota, "Mô tả ngắn (Sapo)", htmlAttributes: new { @class = "form-label" })
+                            @Html.TextAreaFor(model => model.Mota, new { @class = "form-control", rows = 3, placeholder = "Tóm tắt nội dung bài viết..." })
+                            @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Noidung, "Nội dung chi tiết", htmlAttributes: new { @class = "form-label" })
+                            @Html.TextAreaFor(model => model.Noidung, new { @id = "Noidung", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Noidung, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card-custom">
+                    <div class="card-header-custom">
+                        <i class="fas fa-paper-plane me-1"></i> Đăng bài
+                    </div>
+                    <div class="card-body-custom">
+                        <div class="form-group mb-3">
+                            <label class="form-label">Ngày đăng</label>
+                            @Html.EditorFor(model => model.Ngaydang, new { htmlAttributes = new { @class = "form-control", type = "datetime-local" } })
+                            @Html.ValidationMessageFor(model => model.Ngaydang, "", new { @class = "text-danger" })
+                        </div>
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save me-1"></i> Xuất bản ngay
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-custom">
+                    <div class="card-header-custom">
+                        <i class="fas fa-tags me-1"></i> Phân loại
+                    </div>
+                    <div class="card-body-custom">
+                        <div class="form-group">
+                            <label class="form-label">Thể loại</label>
+                            @Html.EditorFor(model => model.TheLoai, new { htmlAttributes = new { @class = "form-control", placeholder = "VD: Y học, Đời sống..." } })
+                            @Html.ValidationMessageFor(model => model.TheLoai, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-custom">
+                    <div class="card-header-custom">
+                        <i class="fas fa-image me-1"></i> Ảnh đại diện
+                    </div>
+                    <div class="card-body-custom">
+                        @Html.HiddenFor(model => model.Hinhanh, new { @id = "Hinhanh" })
+
+                        <div id="chonDuongDanAnh" class="image-upload-container">
+                            <img id="imgPreview" src="" alt="Image Preview" />
+                            <div class="upload-placeholder" id="placeholderIcon">
+                                <i class="fas fa-cloud-upload-alt fa-3x mb-2"></i>
+                                <p class="small mb-0">Nhấn để chọn ảnh</p>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Hinhanh, "", new { @class = "text-danger mt-2" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    // 1. Cấu hình CKFinder chọn ảnh
+    $(function () {
+        $("#chonDuongDanAnh").click(function () {
+            var ckfiner = new CKFinder();
+            ckfiner.selectActionFunction = function (fileUrl) {
+                // Gán đường dẫn vào input ẩn
+                $("#Hinhanh").val(fileUrl);
+                // Hiển thị ảnh xem trước
+                $("#imgPreview").attr("src", fileUrl).css("display", "block");
+                // Ẩn icon placeholder
+                $("#placeholderIcon").css("display", "none");
+            };
+            ckfiner.popup();
+        })
+    });
+
+    // 2. Cấu hình CKEditor cho Nội dung
+    var ckeditor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode,
+            height: 400 // Tăng chiều cao editor
+        });
+    }
+    $(function () { createEditor('vi', 'Noidung') });
+
+    // 3. Tự động set ngày giờ hiện tại nếu ô ngày đăng trống (UX)
+    $(document).ready(function () {
+        var dateInput = $('input[type="datetime-local"]');
+        if (!dateInput.val()) {
+            var now = new Date();
+            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+            dateInput.val(now.toISOString().slice(0, 16));
+        }
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

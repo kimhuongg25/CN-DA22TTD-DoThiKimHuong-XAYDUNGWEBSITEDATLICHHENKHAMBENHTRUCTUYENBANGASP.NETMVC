@@ -1,0 +1,169 @@
+﻿@model WebAppYte.Models.Khoa
+
+@{
+    ViewBag.Title = "Cập nhật Chuyên Khoa";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary: #4e73df;
+        --success: #1cc88a;
+        --bg-light: #f8f9fc;
+        --border-color: #e3e6f0;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fc;
+    }
+
+    .content-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-top: 40px;
+    }
+
+    /* Card Styling */
+    .form-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
+        width: 100%;
+        max-width: 600px; /* Giới hạn chiều rộng */
+        overflow: hidden;
+    }
+
+    .card-header {
+        background-color: white;
+        padding: 20px 30px;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .card-title {
+        margin: 0;
+        font-weight: 700;
+        color: #4e73df;
+        font-size: 18px;
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    /* Form Controls */
+    .form-label {
+        font-weight: 600;
+        color: #5a5c69;
+        margin-bottom: 8px;
+        display: block;
+        font-size: 14px;
+    }
+
+    .form-control {
+        border-radius: 6px;
+        border: 1px solid #d1d3e2;
+        padding: 10px 15px;
+        font-size: 14px;
+        width: 100%;
+        transition: 0.2s;
+    }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+            outline: none;
+        }
+
+    textarea.form-control {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    /* Buttons */
+    .btn-save {
+        background-color: var(--primary);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 6px;
+        border: none;
+        font-weight: 600;
+        transition: 0.2s;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+    }
+
+        .btn-save:hover {
+            background-color: #2e59d9;
+            transform: translateY(-1px);
+        }
+
+    .btn-back {
+        color: #858796;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        margin-right: 20px;
+        transition: 0.2s;
+    }
+
+        .btn-back:hover {
+            color: #5a5c69;
+        }
+
+    .mb-3 {
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="form-card">
+        <div class="card-header">
+            <h3 class="card-title">
+                <i class="fas fa-edit me-2"></i> Cập nhật Chuyên Khoa
+            </h3>
+            <a href="@Url.Action("Index")" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Quay lại
+            </a>
+        </div>
+
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+                @Html.HiddenFor(model => model.IDKhoa)
+
+                <div class="mb-3">
+                    <label class="form-label">Tên Khoa / Chuyên khoa</label>
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.TenKhoa, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập tên khoa..." } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.TenKhoa, "", new { @class = "text-danger small" })
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Mô tả chi tiết</label>
+                    @Html.TextAreaFor(model => model.MoTa, new { @class = "form-control", rows = 5, placeholder = "Nhập mô tả hoạt động của khoa..." })
+                    @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger small" })
+                </div>
+
+                <hr style="margin: 25px 0; border: 0; border-top: 1px solid #e3e6f0;">
+
+                <div class="text-right" style="text-align: right;">
+                    <button type="submit" class="btn-save">
+                        <i class="fas fa-save me-2"></i> Lưu thay đổi
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

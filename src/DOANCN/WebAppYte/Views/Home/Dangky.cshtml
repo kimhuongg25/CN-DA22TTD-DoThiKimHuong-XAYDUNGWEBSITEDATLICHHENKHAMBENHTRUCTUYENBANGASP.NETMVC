@@ -1,0 +1,198 @@
+﻿@model WebAppYte.Models.NguoiDung
+
+@{
+    ViewBag.Title = "Đăng ký thành viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary-color: #0d6efd;
+        --primary-hover: #0b5ed7;
+        --bg-color: #f0f2f5;
+        --card-bg: #ffffff;
+        --text-muted: #6c757d;
+        --input-border: #ced4da;
+        --input-focus-shadow: rgba(13, 110, 253, 0.25);
+    }
+
+    body {
+        background-color: var(--bg-color);
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* ===== CĂN GIỮA FORM ===== */
+    .register-wrapper {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 15px;
+    }
+
+    .register-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        padding: 40px;
+        width: 100%;
+        max-width: 700px;
+    }
+
+    .register-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .register-title {
+        font-weight: 700;
+        color: var(--primary-color);
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .register-subtitle {
+        color: var(--text-muted);
+        font-size: 15px;
+    }
+
+    .form-label-custom {
+        font-weight: 600;
+        font-size: 14px;
+        color: #495057;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+        .form-label-custom i {
+            color: var(--primary-color);
+            width: 20px;
+            margin-right: 5px;
+            text-align: center;
+        }
+
+    .form-control-custom {
+        height: 48px;
+        border-radius: 8px;
+        border: 1px solid var(--input-border);
+        padding-left: 15px;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+
+        .form-control-custom:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px var(--input-focus-shadow);
+        }
+
+    .btn-register {
+        height: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+        border: none;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .form-footer {
+        margin-top: 25px;
+        text-align: center;
+        font-size: 14px;
+        color: var(--text-muted);
+    }
+
+        .form-footer a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+    .field-validation-error {
+        color: #dc3545;
+        font-size: 13px;
+        margin-top: 4px;
+        display: block;
+    }
+</style>
+
+<div class="register-wrapper">
+    <div class="register-card">
+
+        <div class="register-header">
+            <h3 class="register-title">Tạo tài khoản mới</h3>
+            <p class="register-subtitle">Vui lòng điền thông tin để tham gia hệ thống y tế</p>
+        </div>
+
+        @if (ViewBag.error != null)
+        {
+            <div class="alert alert-danger">
+                <i class="fas fa-exclamation-circle me-2"></i> @ViewBag.error
+            </div>
+        }
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label-custom"><i class="fa fa-user"></i>Họ và tên</label>
+                    @Html.TextBoxFor(m => m.HoTen, new { @class = "form-control form-control-custom" })
+                    @Html.ValidationMessageFor(m => m.HoTen, "", new { @class = "field-validation-error" })
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label-custom"><i class="fa fa-envelope"></i>Email</label>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-custom", type = "email" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label-custom"><i class="fa fa-phone"></i>Số điện thoại</label>
+                    @Html.TextBoxFor(m => m.DienThoai, new { @class = "form-control form-control-custom" })
+                    @Html.ValidationMessageFor(m => m.DienThoai, "", new { @class = "field-validation-error" })
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label-custom"><i class="fa fa-venus-mars"></i>Giới tính</label>
+                    @Html.DropDownListFor(m => m.IDGioiTinh, null, "-- Chọn giới tính --", new { @class = "form-control form-control-custom" })
+                    @Html.ValidationMessageFor(m => m.IDGioiTinh, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label-custom"><i class="fa fa-user-circle"></i>Tên đăng nhập</label>
+                    @Html.TextBoxFor(m => m.TaiKhoan, new { @class = "form-control form-control-custom" })
+                    @Html.ValidationMessageFor(m => m.TaiKhoan, "", new { @class = "field-validation-error" })
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label-custom"><i class="fa fa-lock"></i>Mật khẩu</label>
+                    @Html.PasswordFor(m => m.MatKhau, new { @class = "form-control form-control-custom" })
+                    @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label-custom"><i class="fa fa-map-marker-alt"></i>Khu vực (Huyện)</label>
+                @Html.DropDownList("IDHuyen", null, "-- Chọn quận/huyện --", new { @class = "form-control form-control-custom" })
+            </div>
+
+            <button type="submit" class="btn btn-register w-100">Đăng ký ngay</button>
+        }
+
+        <div class="form-footer">
+            <p>Đã có tài khoản? @Html.ActionLink("Đăng nhập ngay", "Dangnhap")</p>
+            <p><i class="fas fa-arrow-left"></i> @Html.ActionLink("Quay về trang chủ", "Index", "Home")</p>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,259 @@
+﻿@model WebAppYte.Models.LichKham
+
+@{
+    ViewBag.Title = "Tạo Lịch Khám mới";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary: #4e73df;
+        --success: #1cc88a;
+        --bg-light: #f8f9fc;
+        --border-color: #e3e6f0;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fc;
+    }
+
+    /* Card Styling */
+    .form-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
+        margin: 20px auto;
+        max-width: 1000px;
+    }
+
+    .card-header {
+        background-color: white;
+        padding: 20px 30px;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .card-title {
+        margin: 0;
+        font-weight: 700;
+        color: var(--success); /* Màu xanh lá cho Lịch khám */
+        font-size: 18px;
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    /* Form Controls */
+    .form-label {
+        font-weight: 600;
+        color: #5a5c69;
+        margin-bottom: 8px;
+        display: block;
+        font-size: 14px;
+    }
+
+    .form-control {
+        border-radius: 6px;
+        border: 1px solid #d1d3e2;
+        padding: 10px 15px;
+        font-size: 14px;
+        height: auto;
+        width: 100%;
+        transition: 0.2s;
+    }
+
+        .form-control:focus {
+            border-color: var(--success);
+            box-shadow: 0 0 0 3px rgba(28, 200, 138, 0.1);
+            outline: none;
+        }
+
+    textarea.form-control {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    /* Section Header */
+    .section-header {
+        font-size: 15px;
+        font-weight: 700;
+        color: #858796;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #eaecf4;
+        padding-bottom: 10px;
+        letter-spacing: 1px;
+    }
+
+    /* Buttons */
+    .btn-create {
+        background-color: var(--success);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 6px;
+        border: none;
+        font-weight: 600;
+        transition: 0.2s;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+    }
+
+        .btn-create:hover {
+            background-color: #17a673;
+            transform: translateY(-1px);
+        }
+
+    .btn-back {
+        color: #858796;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        margin-right: 20px;
+        transition: 0.2s;
+    }
+
+        .btn-back:hover {
+            color: #5a5c69;
+        }
+
+    /* Layout Helpers */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+    }
+
+    .col-md-6 {
+        width: 50%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .col-12 {
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .mb-3 {
+        margin-bottom: 20px;
+    }
+
+    @@media (max-width: 768px) {
+        .col-md-6 {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="form-card">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-calendar-plus me-2"></i> Tạo Lịch Khám mới
+        </h3>
+        <a href="@Url.Action("Index")" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Quay lại danh sách
+        </a>
+    </div>
+
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+            <div class="section-header text-primary">
+                <i class="fas fa-user-friends me-2"></i> Thông tin Người tham gia
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Bác sĩ phụ trách</label>
+                    <div class="input-group">
+                        @Html.DropDownList("IDQuanTri", null, "--- Chọn Bác sĩ ---", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.IDQuanTri, "", new { @class = "text-danger small" })
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Bệnh nhân / Người dùng</label>
+                    <div class="input-group">
+                        @Html.DropDownList("IDNguoiDung", null, "--- Chọn Bệnh nhân ---", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.IDNguoiDung, "", new { @class = "text-danger small" })
+                </div>
+            </div>
+
+            <div class="section-header text-success mt-3">
+                <i class="fas fa-clock me-2"></i> Thời gian & Nội dung
+            </div>
+
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label class="form-label">Chủ đề / Lý do khám</label>
+                    @Html.EditorFor(model => model.ChuDe, new { htmlAttributes = new { @class = "form-control", placeholder = "VD: Khám tổng quát, Tái khám..." } })
+                    @Html.ValidationMessageFor(model => model.ChuDe, "", new { @class = "text-danger small" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Thời gian Bắt đầu</label>
+                    @Html.TextBoxFor(model => model.BatDau, "{0:yyyy-MM-ddTHH:mm}", new { @class = "form-control", type = "datetime-local" })
+                    @Html.ValidationMessageFor(model => model.BatDau, "", new { @class = "text-danger small" })
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Thời gian Kết thúc (Dự kiến)</label>
+                    @Html.TextBoxFor(model => model.KetThuc, "{0:yyyy-MM-ddTHH:mm}", new { @class = "form-control", type = "datetime-local" })
+                    @Html.ValidationMessageFor(model => model.KetThuc, "", new { @class = "text-danger small" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Địa điểm / Phòng khám</label>
+                    @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control", placeholder = "VD: Phòng 101, Tầng 1..." } })
+                    @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger small" })
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Trạng thái ban đầu</label>
+                    @Html.EditorFor(model => model.TrangThai, new { htmlAttributes = new { @class = "form-control", placeholder = "VD: Chờ xác nhận, Đã đặt..." } })
+                    @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger small" })
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Mô tả chi tiết / Triệu chứng</label>
+                @Html.TextAreaFor(model => model.MoTa, new { @class = "form-control", rows = 3, placeholder = "Nhập chi tiết về triệu chứng hoặc yêu cầu đặc biệt..." })
+                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger small" })
+            </div>
+
+            <div class="section-header text-info mt-3">
+                <i class="fas fa-file-medical-alt me-2"></i> Kết quả khám (Tùy chọn)
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Kết quả / Ghi chú bác sĩ (Có thể cập nhật sau)</label>
+                @Html.TextAreaFor(model => model.KetQuaKham, new { @class = "form-control", rows = 2, placeholder = "Để trống nếu chưa có kết quả..." })
+                @Html.ValidationMessageFor(model => model.KetQuaKham, "", new { @class = "text-danger small" })
+            </div>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #e3e6f0;">
+
+            <div class="text-right" style="text-align: right;">
+                <button type="submit" class="btn-create">
+                    <i class="fas fa-check me-2"></i> Tạo lịch hẹn
+                </button>
+            </div>
+        }
+    </div>
+</div>

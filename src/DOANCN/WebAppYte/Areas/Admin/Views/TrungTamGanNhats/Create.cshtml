@@ -1,0 +1,193 @@
+﻿@model WebAppYte.Models.TrungTamGanNhat
+
+@{
+    ViewBag.Title = "Thêm mới Trung tâm Y tế";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
+}
+
+<script src="~/Common/ckeditor/ckeditor.js"></script>
+<script src="~/Common/ckfinder/ckfinder.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary: #4e73df;
+        --success: #1cc88a;
+        --bg-light: #f8f9fc;
+        --border-color: #e3e6f0;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fc;
+    }
+
+    /* Page Header */
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-top: 20px;
+    }
+
+    .page-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #5a5c69;
+        margin: 0;
+    }
+
+    /* Cards */
+    .card-custom {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
+        margin-bottom: 20px;
+    }
+
+    .card-header-custom {
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border-color);
+        font-weight: 700;
+        color: #4e73df;
+        background-color: #fff;
+        border-radius: 8px 8px 0 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .card-body-custom {
+        padding: 20px;
+    }
+
+    /* Form Controls */
+    .form-label {
+        font-weight: 600;
+        color: #5a5c69;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .form-control-lg {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    /* Buttons */
+    .btn-save {
+        width: 100%;
+        padding: 10px;
+        font-weight: 700;
+        background-color: var(--success);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        transition: 0.2s;
+    }
+
+        .btn-save:hover {
+            background-color: #17a673;
+            transform: translateY(-1px);
+        }
+
+    .btn-back {
+        background-color: #eaecf4;
+        color: #858796;
+        border: 1px solid #d1d3e2;
+    }
+
+        .btn-back:hover {
+            background-color: #d1d3e2;
+            color: #5a5c69;
+        }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="container-fluid" style="padding: 0 20px 30px 20px;">
+
+        <div class="page-header">
+            <h2 class="page-title"><i class="fas fa-hospital-alt me-2"></i> Thêm mới Cơ sở Y tế</h2>
+            <a href="@Url.Action("Index")" class="btn btn-secondary btn-sm btn-back">
+                <i class="fas fa-arrow-left me-1"></i> Quay lại
+            </a>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-9">
+                <div class="card-custom">
+                    <div class="card-body-custom">
+                        <div class="form-group mb-4">
+                            @Html.LabelFor(model => model.TenTrungTam, "Tên Trung tâm / Bệnh viện", htmlAttributes: new { @class = "form-label" })
+                            @Html.EditorFor(model => model.TenTrungTam, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = "Nhập tên trung tâm y tế..." } })
+                            @Html.ValidationMessageFor(model => model.TenTrungTam, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Mota, "Giới thiệu & Mô tả chi tiết", htmlAttributes: new { @class = "form-label" })
+                            @Html.TextAreaFor(model => model.Mota, new { @id = "Mota", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card-custom">
+                    <div class="card-header-custom">
+                        <i class="fas fa-save me-2"></i> Tác vụ
+                    </div>
+                    <div class="card-body-custom">
+                        <p class="small text-muted mb-3">Kiểm tra kỹ thông tin trước khi lưu.</p>
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-check me-1"></i> Lưu dữ liệu
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-custom">
+                    <div class="card-header-custom">
+                        <i class="fas fa-map-marker-alt me-2"></i> Vị trí
+                    </div>
+                    <div class="card-body-custom">
+                        <div class="form-group">
+                            <label class="form-label">Khu vực (Quận/Huyện)</label>
+                            @Html.DropDownList("IDHuyen", null, "--- Chọn Quận/Huyện ---", htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IDHuyen, "", new { @class = "text-danger" })
+                            <small class="text-muted mt-2 d-block">
+                                *Chọn đúng khu vực để tính năng "Tìm gần nhất" hoạt động chính xác.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    // Cấu hình CKEditor
+    var ckeditor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode,
+            height: 400 // Tăng chiều cao để soạn thảo thoải mái
+        });
+    }
+    $(function () { createEditor('vi', 'Mota') });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

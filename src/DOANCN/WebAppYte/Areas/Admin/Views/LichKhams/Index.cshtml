@@ -1,0 +1,286 @@
+﻿@model IEnumerable<WebAppYte.Models.LichKham>
+
+@{
+    ViewBag.Title = "Quản lý Lịch Khám";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary: #4e73df;
+        --secondary: #858796;
+        --success: #1cc88a;
+        --info: #36b9cc;
+        --warning: #f6c23e;
+        --danger: #e74a3b;
+        --bg-light: #f8f9fc;
+        --dark: #5a5c69;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fc;
+    }
+
+    /* Page Header */
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-top: 20px;
+    }
+
+    .page-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--dark);
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .btn-add-new {
+        background-color: var(--success);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 4px 6px rgba(28, 200, 138, 0.3);
+        transition: all 0.2s;
+    }
+
+        .btn-add-new:hover {
+            background-color: #17a673;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    /* Table Card */
+    .table-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        border: 1px solid #e3e6f0;
+        overflow: hidden;
+    }
+
+    .table-custom {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 0;
+    }
+
+        .table-custom th {
+            background-color: #f8f9fc;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            padding: 15px;
+            border-bottom: 2px solid #e3e6f0;
+            vertical-align: middle;
+        }
+
+        .table-custom td {
+            padding: 15px;
+            vertical-align: middle;
+            color: #5a5c69;
+            border-bottom: 1px solid #e3e6f0;
+            font-size: 14px;
+        }
+
+        .table-custom tr:hover {
+            background-color: #fafbfc;
+        }
+
+    /* Column Styles */
+    .date-box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .date-start {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 15px;
+    }
+
+    .date-end {
+        color: #858796;
+        font-size: 12px;
+    }
+
+    .person-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        font-size: 13px;
+    }
+
+        .person-row i {
+            width: 20px;
+            text-align: center;
+            margin-right: 5px;
+        }
+
+    .text-patient {
+        color: var(--danger);
+    }
+
+    .text-doctor {
+        color: var(--primary);
+    }
+
+    .topic-title {
+        font-weight: 600;
+        color: #2c3e50;
+        display: block;
+    }
+
+    .location-text {
+        font-size: 12px;
+        color: #858796;
+    }
+
+    /* Badge Status */
+    .status-badge {
+        padding: 5px 12px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        background-color: #f3f4f6;
+        color: #4b5563;
+        border: 1px solid #e5e7eb;
+        white-space: nowrap;
+    }
+
+    /* Actions */
+    .action-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 2px;
+        transition: 0.2s;
+        text-decoration: none;
+    }
+
+    .btn-edit {
+        background-color: #e0e7ff;
+        color: #4338ca;
+    }
+
+    .btn-detail {
+        background-color: #e0f2fe;
+        color: #0369a1;
+    }
+
+    .btn-delete {
+        background-color: #fee2e2;
+        color: #b91c1c;
+    }
+
+    .action-btn:hover {
+        opacity: 0.8;
+    }
+</style>
+
+<div class="container-fluid" style="padding: 0 20px 30px 20px;">
+
+    <div class="page-header">
+        <h2 class="page-title"><i class="fas fa-calendar-alt me-2"></i> Quản lý Lịch Khám</h2>
+        <a href="@Url.Action("Create")" class="btn-add-new">
+            <i class="fas fa-plus me-2"></i> Thêm Lịch hẹn
+        </a>
+    </div>
+
+    <div class="table-card">
+        <div class="table-responsive">
+            <table class="table table-custom">
+                <thead>
+                    <tr>
+                        <th width="20%">Thời gian</th>
+                        <th width="25%">Người tham gia</th>
+                        <th width="25%">Nội dung / Địa điểm</th>
+                        <th width="15%" class="text-center">Trạng thái</th>
+                        <th width="15%" class="text-center">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="date-box">
+                                    <span class="date-start">
+                                        <i class="far fa-clock me-1"></i>
+                                        @(item.BatDau.HasValue ? item.BatDau.Value.ToString("HH:mm - dd/MM/yyyy") : "---")
+                                    </span>
+                                    <span class="date-end">
+                                        Đến: @(item.KetThuc.HasValue ? item.KetThuc.Value.ToString("HH:mm - dd/MM/yyyy") : "---")
+                                    </span>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="person-row text-patient" title="Bệnh nhân">
+                                    <i class="fas fa-user-injured"></i>
+                                    <strong>@Html.DisplayFor(modelItem => item.NguoiDung.HoTen)</strong>
+                                </div>
+                                <div class="person-row text-doctor" title="Bác sĩ phụ trách">
+                                    <i class="fas fa-user-md"></i>
+                                    @Html.DisplayFor(modelItem => item.QuanTri.HoTen)
+                                </div>
+                            </td>
+
+                            <td>
+                                <span class="topic-title">@item.ChuDe</span>
+                                <div class="location-text">
+                                    <i class="fas fa-map-marker-alt me-1"></i>
+                                    @(string.IsNullOrEmpty(item.DiaChi) ? "Chưa cập nhật địa điểm" : item.DiaChi)
+                                </div>
+                                @if (!string.IsNullOrEmpty(item.KetQuaKham))
+                                {
+                                    <small class="text-success"><i class="fas fa-check-circle me-1"></i> Đã có kết quả</small>
+                                }
+                            </td>
+
+                            <td class="text-center">
+                                <span class="status-badge">
+                                    @Html.DisplayFor(modelItem => item.TrangThai)
+                                </span>
+                            </td>
+
+                            <td class="text-center">
+                                <a href="@Url.Action("Edit", new { id=item.IDLichKham })" class="action-btn btn-edit" title="Cập nhật">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Details", new { id=item.IDLichKham })" class="action-btn btn-detail" title="Xem chi tiết">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="@Url.Action("Delete", new { id=item.IDLichKham })" class="action-btn btn-delete" title="Hủy lịch">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (Model.Count() == 0)
+        {
+            <div class="text-center p-5">
+                <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
+                <p class="text-muted">Chưa có lịch khám nào trong hệ thống.</p>
+            </div>
+        }
+    </div>
+</div>

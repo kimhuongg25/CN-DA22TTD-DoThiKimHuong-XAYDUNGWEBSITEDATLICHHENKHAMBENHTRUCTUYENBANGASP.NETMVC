@@ -1,0 +1,371 @@
+﻿@model IEnumerable<WebAppYte.Models.Tintuc>
+@{
+    ViewBag.Title = "Trang Chủ";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+    :root {
+        --primary-color: #007bff; /* Xanh dương chủ đạo */
+        --primary-dark: #0056b3;
+        --accent-color: #0dcaf0; /* Xanh ngọc nhẹ */
+        --text-dark: #1e293b;
+        --text-gray: #64748b;
+        --bg-body: #f1f5f9;
+        --card-bg: #ffffff;
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-body);
+        color: var(--text-dark);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- CAROUSEL STYLES --- */
+    #bannerCarousel {
+        position: relative;
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        margin-bottom: 60px;
+    }
+
+        /* Fix kích thước banner Bootstrap 3 & 4 */
+        #bannerCarousel .item img,
+        #bannerCarousel .carousel-item img {
+            width: 100%;
+            height: 500px; /* Chiều cao banner cố định */
+            object-fit: cover; /* Cắt ảnh cho đều, không méo */
+        }
+
+
+    /* Gradient Overlay cho Caption đẹp hơn */
+    .carousel-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60%;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        pointer-events: none;
+    }
+
+    .carousel-caption {
+        bottom: 40px;
+        text-align: left;
+        padding-left: 15%; /* Canh lề trái cho hiện đại */
+        padding-right: 15%;
+    }
+
+    .carousel-caption h3 {
+        font-weight: 800;
+        font-size: 2rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .carousel-caption p {
+        font-size: 1.2rem;
+        font-weight: 400;
+        opacity: 0.9;
+        animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+
+    /* --- SECTION HEADER --- */
+    .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .section-subtitle {
+        color: var(--primary-color);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 2rem;
+        letter-spacing: 2px;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .section-title {
+        font-weight: 800;
+        color: var(--text-dark);
+        font-size: 2.5rem;
+        margin: 0;
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Gạch chân trang trí tiêu đề */
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary-color);
+        margin: 15px auto 0;
+        border-radius: 2px;
+    }
+
+    /* --- NEWS CARD PRO (Design mới) --- */
+    .news-card-wrapper {
+        padding: 10px; /* Tạo khoảng thở cho shadow */
+    }
+
+    .news-card-pro {
+        background: var(--card-bg);
+        border-radius: var(--radius-lg);
+        padding: 30px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        border: 1px solid rgba(0,0,0,0.03);
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+    }
+
+    /* Thanh màu trang trí trên đầu card */
+    .news-card-pro::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        opacity: 0.7;
+        transition: 0.3s;
+    }
+
+    .news-card-pro:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .news-card-pro:hover::before {
+        height: 8px; /* Dày hơn khi hover */
+        opacity: 1;
+    }
+
+    /* Tag thể loại */
+    .card-meta-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .category-badge {
+        background-color: #eff6ff;
+        color: var(--primary-color);
+        padding: 6px 14px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Date Box Mới */
+    .date-badge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 5px 10px;
+        min-width: 60px;
+    }
+
+    .date-day {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--text-dark);
+        line-height: 1;
+    }
+
+    .date-month {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--text-gray);
+    }
+
+    /* Typography Card */
+    .news-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+
+    .news-title a {
+        color: var(--text-dark);
+        text-decoration: none;
+        transition: color 0.2s;
+        background-image: linear-gradient(var(--primary-color), var(--primary-color));
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 2px;
+        transition: background-size .3s, color .3s;
+    }
+
+    .news-card-pro:hover .news-title a {
+        color: var(--primary-color);
+        background-size: 100% 2px;
+    }
+
+    .news-desc {
+        color: var(--text-gray);
+        font-size: 1.4rem;
+        line-height: 1.7;
+        margin-bottom: 25px;
+        flex-grow: 1; 
+
+    /* Button Xem Chi Tiết */
+    .btn-read-more {
+        display: inline-flex;
+        align-items: center;
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: 0.3s;
+        padding: 8px 0;
+        border-top: 1px solid #f1f5f9;
+        margin-top: auto;
+    }
+
+    .btn-read-more i {
+        margin-left: 8px;
+        transition: transform 0.3s;
+        font-size: 0.8rem;
+    }
+
+    .news-card-pro:hover .btn-read-more i {
+        transform: translateX(6px);
+    }
+
+    /* Utilities */
+    .text-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .text-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    @@keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="container-fluid px-0">
+    <div id="bannerCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+        <ol class="carousel-indicators">
+            <li data-target="#bannerCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#bannerCarousel" data-slide-to="1"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="carousel-overlay"></div>
+                <img src="~/Common/images/img4.png" class="d-block w-100" alt="Banner Y Tế" />
+
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Chăm sóc sức khỏe toàn diện</h3>
+                    <p>Đội ngũ bác sĩ chuyên nghiệp, trang thiết bị hiện đại, tận tâm vì sức khỏe cộng đồng</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="carousel-overlay"></div>
+                <img src="~/Common/images/img1.png" class="d-block w-100" alt="Công nghệ Y Khoa" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Công nghệ Y khoa tiên tiến</h3>
+                    <p>Áp dụng các kỹ thuật mới nhất trong chẩn đoán và điều trị bệnh</p>
+                </div>
+            </div>
+        </div>
+
+        <a class="left carousel-control" href="#bannerCarousel" data-slide="prev" style="background: none; width: 5%;">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#bannerCarousel" data-slide="next" style="background: none; width: 5%;">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="section-header">
+        <span class="section-subtitle">Tin tức & Sự kiện</span>
+        <h2 class="section-title">Thông tin Y tế mới nhất</h2>
+    </div>
+
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 news-card-wrapper">
+                    <div class="news-card-pro">
+                        <div class="card-meta-top">
+                            <span class="category-badge">
+                                <i class="fas fa-stethoscope mr-1"></i> @(string.IsNullOrEmpty(item.TheLoai) ? "Y TẾ" : item.TheLoai)
+                            </span>
+
+                            <div class="date-badge">
+                                <span class="date-day">@(item.Ngaydang.HasValue ? item.Ngaydang.Value.Day.ToString("00") : "--")</span>
+                                <span class="date-month">Thg @(item.Ngaydang.HasValue ? item.Ngaydang.Value.Month.ToString("00") : "--")</span>
+                            </div>
+                        </div>
+
+                        <h3 class="news-title">
+                            <a href="@Url.Action("Xemchitiet","Home", new { IDTintuc = item.IDTintuc })" class="text-clamp-2" title="@item.Tieude">
+                                @item.Tieude
+                            </a>
+                        </h3>
+
+                        <div class="news-desc text-clamp-3">
+                            @item.Mota
+                        </div>
+
+                        <a href="@Url.Action("Xemchitiet","Home", new { IDTintuc = item.IDTintuc })" class="btn-read-more">
+                            <span>Đọc tiếp</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center py-5">
+                <div style="background: #fff; padding: 50px; border-radius: 20px; box-shadow: var(--shadow-sm); display: inline-block; max-width: 400px;">
+                    <i class="fas fa-newspaper fa-4x mb-4" style="color: #cbd5e1;"></i>
+                    <h4 style="color: var(--text-dark); font-weight: 700;">Chưa có tin tức</h4>
+                    <p class="text-muted m-0">Hệ thống đang cập nhật dữ liệu. Vui lòng quay lại sau.</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

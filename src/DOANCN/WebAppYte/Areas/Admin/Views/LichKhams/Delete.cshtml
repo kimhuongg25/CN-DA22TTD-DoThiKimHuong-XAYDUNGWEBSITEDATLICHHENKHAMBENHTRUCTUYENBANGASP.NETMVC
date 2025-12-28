@@ -1,0 +1,276 @@
+﻿@model WebAppYte.Models.LichKham
+
+@{
+    ViewBag.Title = "Hủy Lịch Khám";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAd.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+    :root {
+        --danger: #e74a3b;
+        --danger-dark: #c0392b;
+        --dark: #5a5c69;
+        --bg-light: #f8f9fc;
+        --text-muted: #858796;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-light);
+    }
+
+    .content-wrapper {
+        min-height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
+    /* Card Styling */
+    .delete-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 600px;
+        overflow: hidden;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    /* Header */
+    .card-header-danger {
+        background: linear-gradient(135deg, #e74a3b, #d62c1a);
+        padding: 25px;
+        color: white;
+        text-align: center;
+        position: relative;
+    }
+
+    .warning-icon {
+        font-size: 40px;
+        margin-bottom: 10px;
+        opacity: 0.9;
+    }
+
+    .card-title {
+        font-weight: 800;
+        font-size: 20px;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Body */
+    .card-body {
+        padding: 30px;
+    }
+
+    /* Time Badge */
+    .time-highlight {
+        background-color: #fce8e6;
+        color: var(--danger);
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        margin-bottom: 25px;
+        border: 1px dashed var(--danger);
+    }
+
+    .time-big {
+        font-size: 24px;
+        font-weight: 800;
+        display: block;
+    }
+
+    .date-small {
+        font-size: 14px;
+        font-weight: 600;
+        opacity: 0.8;
+    }
+
+    /* Participants Connection */
+    .participants-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #eaecf4;
+    }
+
+    .person {
+        text-align: center;
+        flex: 1;
+    }
+
+    .person-label {
+        font-size: 12px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .person-name {
+        font-weight: 700;
+        color: #2c3e50;
+        font-size: 15px;
+    }
+
+    .connect-icon {
+        color: var(--text-muted);
+        font-size: 18px;
+        padding: 0 10px;
+    }
+
+    /* Details Grid */
+    .info-row {
+        display: flex;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    .info-label {
+        width: 120px;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .info-val {
+        flex: 1;
+        color: var(--dark);
+        font-weight: 600;
+    }
+
+    /* Buttons */
+    .btn-delete {
+        background-color: var(--danger);
+        color: white;
+        font-weight: 700;
+        padding: 12px 30px;
+        border-radius: 50px;
+        border: none;
+        width: 100%;
+        font-size: 16px;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        box-shadow: 0 4px 10px rgba(231, 74, 59, 0.3);
+        cursor: pointer;
+    }
+
+        .btn-delete:hover {
+            background-color: var(--danger-dark);
+            transform: translateY(-2px);
+        }
+
+    .btn-cancel {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: 0.2s;
+    }
+
+        .btn-cancel:hover {
+            color: #5a5c69;
+            text-decoration: underline;
+        }
+</style>
+
+<div class="content-wrapper">
+    <div class="delete-card">
+
+        <div class="card-header-danger">
+            <i class="fas fa-calendar-times warning-icon"></i>
+            <h3 class="card-title">Xác nhận Hủy Lịch Khám</h3>
+            <p style="font-size: 13px; margin: 5px 0 0 0; opacity: 0.9;">Bạn có chắc chắn muốn xóa lịch hẹn này?</p>
+        </div>
+
+        <div class="card-body">
+
+            <div class="time-highlight">
+                <span class="date-small">
+                    @if (Model.BatDau.HasValue)
+                    {
+                        @Model.BatDau.Value.ToString("dd/MM/yyyy")
+                    }
+                </span>
+                <span class="time-big">
+                    @if (Model.BatDau.HasValue)
+                    {
+                        @Model.BatDau.Value.ToString("HH:mm")
+                    }
+                    else
+                    { <span>---</span>}
+                </span>
+                <div style="font-size: 12px; margin-top: 5px;">
+                    (Đến: @(Model.KetThuc.HasValue ? Model.KetThuc.Value.ToString("HH:mm") : "---"))
+                </div>
+            </div>
+
+            <div class="participants-box">
+                <div class="person">
+                    <div class="person-label">Bác sĩ</div>
+                    <div class="person-name text-primary">
+                        <i class="fas fa-user-md me-1"></i> @Html.DisplayFor(model => model.QuanTri.HoTen)
+                    </div>
+                </div>
+                <div class="connect-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="person">
+                    <div class="person-label">Bệnh nhân</div>
+                    <div class="person-name text-success">
+                        <i class="fas fa-user me-1"></i> @Html.DisplayFor(model => model.NguoiDung.HoTen)
+                    </div>
+                </div>
+            </div>
+
+            <div class="details-section">
+                <div class="info-row">
+                    <div class="info-label">Chủ đề:</div>
+                    <div class="info-val">@Html.DisplayFor(model => model.ChuDe)</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Địa điểm:</div>
+                    <div class="info-val">@Html.DisplayFor(model => model.DiaChi)</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Trạng thái:</div>
+                    <div class="info-val">
+                        <span class="badge bg-light text-dark border">@Html.DisplayFor(model => model.TrangThai)</span>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(Model.MoTa))
+                {
+                    <div class="info-row">
+                        <div class="info-label">Mô tả:</div>
+                        <div class="info-val text-muted" style="font-weight: 400; font-style: italic;">"@Html.DisplayFor(model => model.MoTa)"</div>
+                    </div>
+                }
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="mt-4">
+                    <button type="submit" class="btn-delete">
+                        <i class="fas fa-trash-alt me-2"></i> Đồng ý Hủy
+                    </button>
+
+                    <a href="@Url.Action("Index")" class="btn-cancel">
+                        <i class="fas fa-arrow-left me-1"></i> Quay lại, không xóa
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
